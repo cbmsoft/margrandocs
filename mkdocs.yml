@@ -1,1 +1,18 @@
-site_name: My Docs
+# Site information
+site_name: Projeto MarGran - Mármore e Granito Sankhya Om
+site_author: Cassio Menezes
+
+# Copyright
+copyright: Copyright &copy; 2022
+
+# Configuration
+theme:
+  name: material
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+# Page tree
+nav:
+  - Inicio: index.md
+  - Sobre: 'about.md'
