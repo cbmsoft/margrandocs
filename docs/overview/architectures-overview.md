@@ -40,4 +40,10 @@ Para nomeação de pacotes vamos utilizar `br.com.pwn.margran`.
 **Nome do Projeto**: PWN-Margran  
 **Nome da Extensão**: pwnmargran
 
+**Prefixo de tabelas**: `TMG`
+
 **`NUMOS`**: 0110
+
+## Tabelas
+
+### [TMGPRODUTO](../_database/TMGPRODUTO.md)
