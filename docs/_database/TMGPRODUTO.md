@@ -1,8 +1,7 @@
 ---
 id: tmgproduto
-title: Produto [MG]
-# prettier-ignore
-description: Campos complementares necessários aos procedimentos do módulo Mármore e Granito.
+title: '[MG] Produto'
+description: Campos complementares do cadastro de produtos, necessários aos procedimentos do módulo Mármore e Granito.
 authors:
     - Cassio Menezes
 ---
@@ -10,17 +9,21 @@ authors:
 
 ## Detalhamento do Objeto
 
+Campos complementares do cadastro de produtos, necessários aos procedimentos do módulo Mármore e Granito.
+
 ### Objetos Relacionados
 
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
 | TGFPRO | Tabela | Produto |
+| [TMGDUREZA](TMGDUREZA.md) | Tabela | [MG] Dureza |
 
 ### Modelagem
 
 ```mermaid
 erDiagram
     TGFPRO ||--|| TMGPRODUTO : contains
+    TMGPRODUTO ||--o{ TMGDUREZA : contains
 
     TMGPRODUTO {
         number CODPROD PK,FK "Cód. Produto"
@@ -41,14 +44,14 @@ erDiagram
     TGFPRO {
         number CODPROD PK "Código"
     }
+    TMGDUREZA {
+        number ID PK "Id."
+    }
 ```
 
 ``` mermaid
----
-title: mgProduto
----
 classDiagram
-    class mgProduto{
+    class MgProduto{
       -BigDecimal codProd
       -String tipoProd
       -String descrIngles
