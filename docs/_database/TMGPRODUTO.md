@@ -17,6 +17,7 @@ Campos complementares do cadastro de produtos, necessários aos procedimentos do
 |--|--|--|
 | TGFPRO | Tabela | Produto |
 | [TMGDUREZA](TMGDUREZA.md) | Tabela | [MG] Dureza |
+| [TMGCLASSIF](TMGCLASSIF.md) | Tabela | [MG] Classificação do Material |
 
 ### Modelagem
 
@@ -24,6 +25,9 @@ Campos complementares do cadastro de produtos, necessários aos procedimentos do
 erDiagram
     TGFPRO ||--|| TMGPRODUTO : contains
     TMGPRODUTO ||--o{ TMGDUREZA : contains
+    TMGPRODUTO ||--o{ TMGCLASSIF : contains
+    TMGPRODUTO ||--|| TIPOPROD : enum
+    TMGPRODUTO ||--|| TIPOPOLI : enum
 
     TMGPRODUTO {
         number CODPROD PK,FK "Cód. Produto"
@@ -47,6 +51,22 @@ erDiagram
     TMGDUREZA {
         number ID PK "Id."
     }
+    TMGCLASSIF {
+        number ID PK "Id."
+    }
+    TIPOPROD {
+        varchar B "Bloco"
+        varchar C "Chapa Bruta"
+        varchar P "Chapa Beneficiada"
+        varchar I "Insumo"
+        varchar L "Lâmina"
+        varchar O "Outros"
+        varchar R "Recortado"
+    }
+    TIPOPOLI {
+        varchar _1 "Polimento Direto"
+        varchar _2 "Resinado"
+    }
 ```
 
 ``` mermaid
@@ -55,10 +75,10 @@ classDiagram
       -BigDecimal codProd
       -String tipoProd
       -String descrIngles
-      -BigDecimal idDureza
+      -MgDureza dureza
       -BigDecimal pesoM3
       -BigDecimal fatQtdChapas
-      -BigDecimal codClassMat
+      -MgClassif classificacao
       -String tipoPoli
       -BigDecimal espessLamFio
       -BigDecimal espessuraChapa

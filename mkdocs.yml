@@ -47,3 +47,4 @@ nav:
     - O que é o MarGran: 'overview/what-is-margran.md'
     - Arquitetura: 'overview/architectures-overview.md'
   - Sobre: about.md
+  - tags: 'tags.md'
