@@ -17,7 +17,7 @@ Campos complementares do cadastro de produtos, necessários aos procedimentos do
 |--|--|--|
 | TGFPRO | Tabela | Produto |
 | [TMGDUREZA](TMGDUREZA.md) | Tabela | [MG] Dureza |
-| [TMGCLASSIF](TMGCLASSIF.md) | Tabela | [MG] Classificação do Material |
+| [TMGCLASSEMAT](TMGCLASSEMAT.md) | Tabela | [MG] Classe de Material |
 
 ### Modelagem
 
@@ -25,7 +25,7 @@ Campos complementares do cadastro de produtos, necessários aos procedimentos do
 erDiagram
     TGFPRO ||--|| TMGPRODUTO : contains
     TMGPRODUTO ||--o{ TMGDUREZA : contains
-    TMGPRODUTO ||--o{ TMGCLASSIF : contains
+    TMGPRODUTO ||--o{ TMGCLASSEMAT : contains
     TMGPRODUTO ||--|| TIPOPROD : enum
     TMGPRODUTO ||--|| TIPOPOLI : enum
 
@@ -36,7 +36,7 @@ erDiagram
         number IDDUREZA FK "Classificação de Dureza"
         number PESOM3 "Peso por M³/M² (ton)"
         number FATQTDCHAPAS "Fator para Calculo da Qtde de Chapas"
-        number CODCLASSMAT FK "Classificação do Material"
+        number CODCLASSMAT FK "Classe do Material"
         varchar TIPOPOLI "Tipo de Polimento"
         number ESPESSLAMFIO "Espessura da Lâmina ou fio (cm)"
         number ESPESSURACHAPA "Espessura da Chapa (em cm)"
@@ -51,7 +51,7 @@ erDiagram
     TMGDUREZA {
         number ID PK "Id."
     }
-    TMGCLASSIF {
+    TMGCLASSEMAT {
         number ID PK "Id."
     }
     TIPOPROD {
@@ -78,7 +78,7 @@ classDiagram
       -MgDureza dureza
       -BigDecimal pesoM3
       -BigDecimal fatQtdChapas
-      -MgClassif classificacao
+      -MgClasseMat classificacao
       -String tipoPoli
       -BigDecimal espessLamFio
       -BigDecimal espessuraChapa
@@ -96,4 +96,5 @@ classDiagram
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
+| 1.1 | 19/11/2025 | Cassio Menezes | Ajuste nomenclatura |
 | 1.0 | 12/11/2025 | Cassio Menezes | Criação do documento |

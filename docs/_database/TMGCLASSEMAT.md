@@ -1,15 +1,15 @@
 ---
-id: tmgclassif
-title: '[MG] Classificação do Material'
-description: Códigos de classificação de minerais.
+id: tmgclassemat
+title: '[MG] Classe de Material'
+description: Códigos de classes de materiais.
 authors:
     - Cassio Menezes
 ---
-# TMGCLASSIF
+# TMGCLASSEMAT
 
 ## Detalhamento do Objeto
 
-  Códigos de classificação de minerais.
+  Códigos de classes de materiais.
 
 ### Objetos Relacionados
 
@@ -21,20 +21,21 @@ authors:
 
 ```mermaid
 erDiagram
-    TMGPRODUTO ||--o{ TMGCLASSIF : contains
+    TMGPRODUTO ||--o{ TMGCLASSEMAT : contains
 
-    TMGCLASSIF {
-        number ID PK,FK "Id."
+    TMGCLASSEMAT {
+        number ID PK "Id."
         varchar DESCRICAO "Descrição"
     }
     TMGPRODUTO {
         number CODPROD PK "Cód. Produto"
+        number CODCLASSMAT FK "Classificação do Material"
     }
 ```
 
 ``` mermaid
 classDiagram
-    class MgClassif{
+    class MgClasseMat{
       -BigDecimal id
       -String descricao
       +loadByPk(Object... keyValue)
@@ -47,4 +48,5 @@ classDiagram
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
+| 1.1 | 19/11/2025 | Cassio Menezes | Ajuste nomenclatura |
 | 1.0 | 12/11/2025 | Cassio Menezes | Criação do documento |
