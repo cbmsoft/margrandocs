@@ -11,39 +11,6 @@ authors:
 
   Códigos de classificação de dureza de minerais.
 
-### Objetos Relacionados
-
-| Nome | Tipo do Objeto | Descrição |
-|--|--|--|
-| TMGPRODUTO | Tabela | [MG] Produto |
-
-### Modelagem
-
-```mermaid
-erDiagram
-    TMGPRODUTO ||--o{ TMGDUREZA : contains
-
-    TMGDUREZA {
-        number ID PK "Id."
-        varchar DESCRICAO "Descrição"
-    }
-    TMGPRODUTO {
-        number CODPROD PK "Cód. Produto"
-        number IDDUREZA FK "Classificação de Dureza"
-    }
-```
-
-``` mermaid
-classDiagram
-    class {
-      -BigDecimal id
-      -String descricao
-      +loadByPk(Object... keyValue)
-      +loadByVO(DynamicVO vo)
-      +persists() DynamicVO
-    }
-```
-
 ### Dicionário de Dados
 
 #### Instância
@@ -58,8 +25,43 @@ classDiagram
 |--|--|
 | MgDureza | Classificação de Dureza de Minerais |
 
+```powershell
 ${dynaform:MgDureza}
 br.com.pwn.margran.core.mgdureza
+```
+
+### Objetos Relacionados
+
+| Nome | Tipo do Objeto | Descrição |
+|--|--|--|
+| TMGPRODUTO | Tabela | [MG] Produto |
+
+### Modelagem
+
+```mermaid
+erDiagram
+    TMGPRODUTO ||--|| TMGDUREZA : contains
+
+    TMGDUREZA {
+        number ID PK "Id."
+        varchar DESCRICAO "Descrição"
+    }
+    TMGPRODUTO {
+        number CODPROD PK "Cód. Produto"
+        number IDDUREZA FK "Classificação de Dureza"
+    }
+```
+
+```mermaid
+classDiagram
+    class MgDureza{
+      -BigDecimal id
+      -String descricao
+      +loadByPk(Object... keyValue)
+      +loadByVO(DynamicVO vo)
+      +persists() DynamicVO
+    }
+```
 
 ### Histórico de Revisões
 

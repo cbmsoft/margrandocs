@@ -69,7 +69,7 @@ erDiagram
     }
 ```
 
-``` mermaid
+```mermaid
 classDiagram
     class MgProduto{
       -BigDecimal codProd

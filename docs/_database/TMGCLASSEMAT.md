@@ -21,7 +21,7 @@ authors:
 
 ```mermaid
 erDiagram
-    TMGPRODUTO ||--o{ TMGCLASSEMAT : contains
+    TMGPRODUTO ||--|| TMGCLASSEMAT : contains
 
     TMGCLASSEMAT {
         number ID PK "Id."
@@ -33,7 +33,7 @@ erDiagram
     }
 ```
 
-``` mermaid
+```mermaid
 classDiagram
     class MgClasseMat{
       -BigDecimal id
