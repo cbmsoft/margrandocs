@@ -24,11 +24,12 @@ erDiagram
     TMGPRODUTO ||--o{ TMGDUREZA : contains
 
     TMGDUREZA {
-        number ID PK,FK "Id."
+        number ID PK "Id."
         varchar DESCRICAO "Descrição"
     }
     TMGPRODUTO {
         number CODPROD PK "Cód. Produto"
+        number IDDUREZA FK "Classificação de Dureza"
     }
 ```
 
