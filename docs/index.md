@@ -1,17 +1,10 @@
-# Welcome to MkDocs
+---
+id: index
+title: 'Projeto Margran'
+description: Boas vindas ao projeto.
+authors:
+    - Cassio Menezes
+---
+# Projeto MarGran
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Bem vindo ao Projeto MarGran - Mármore e Granito Sankhya Om. Este conjunto de documentação técnica pretende apresentar informações relevantes [O que é o Projeto MarGran](./overview/what-is-margran.md) e sua [arquitetura](./overview/architectures-overview.md).
