@@ -92,6 +92,23 @@ classDiagram
     }
 ```
 
+```java
+$sql.select("P.DESCRPROD","TGFPRO P","P.CODPROD = "+$col_CODPROD);
+	if($sql.next()){
+		return $sql.getString(1);
+	}
+	
+return null;
+
+
+return com.sankhya.util.BigDecimalUtil.getValueOrZero((java.math.BigDecimal) $col_KMCHEGADA).doubleValue() - com.sankhya.util.BigDecimalUtil.getValueOrZero((java.math.BigDecimal) $col_KMSAIDA).doubleValue()
+
+return com.sankhya.util.BigDecimalUtil.getValueOrZero($col_COMPRIMENTO).multiply(com.sankhya.util.BigDecimalUtil.getValueOrZero($col_ALTURA)).multiply(com.sankhya.util.BigDecimalUtil.getValueOrZero($col_LARGURA))
+
+return com.sankhya.util.BigDecimalUtil.getValueOrZero($col_COMPRIMENTO_LIQ).multiply(com.sankhya.util.BigDecimalUtil.getValueOrZero($col_ALTURA_LIQ)).multiply(com.sankhya.util.BigDecimalUtil.getValueOrZero($col_LARGURA_LIQ))
+
+```
+
 ### Histórico de Revisões
 
 | Versão | Data | Autor | Observações |
