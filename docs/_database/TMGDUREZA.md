@@ -4,6 +4,9 @@ title: '[MG] Classificação de Dureza'
 description: Códigos de classificação de dureza de minerais.
 authors:
     - Cassio Menezes
+tags: 
+- database
+- table
 ---
 # TMGDUREZA
 

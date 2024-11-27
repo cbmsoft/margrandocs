@@ -4,6 +4,9 @@ title: '[MG] Classe de Material'
 description: Códigos de classes de materiais.
 authors:
     - Cassio Menezes
+tags: 
+- database
+- table
 ---
 # TMGCLASSEMAT
 

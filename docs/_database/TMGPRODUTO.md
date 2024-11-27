@@ -4,6 +4,9 @@ title: '[MG] Produto'
 description: Campos complementares do cadastro de produtos, necessários aos procedimentos do módulo Mármore e Granito.
 authors:
     - Cassio Menezes
+tags: 
+- database
+- table
 ---
 # TMGPRODUTO
 

@@ -4,6 +4,9 @@ title: '[MG] Bloco'
 description: Representação da estrutura de Blocos.
 authors:
     - Cassio Menezes
+tags: 
+- database
+- table
 ---
 # TMGBLOCO
 
