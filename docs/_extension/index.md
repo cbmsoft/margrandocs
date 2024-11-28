@@ -1,25 +1,27 @@
 ---
-id: index
+id: pwnmargran
 title: 'Configuracoes da Extensao'
 description: Extensao pwnmargran
 authors:
     - Cassio Menezes
+tags: 
+- extension
 ---
 # pwnmargran
-
-## Telas
 
 ## Estrutura de menus
 
 ``` mermaid
 flowchart TD
-    A[Main Menu] --> B[Submenu 1]
-    A --> C[Submenu 2]
-    B --> D[Option 1]
-    B --> E[Option 2]
-    C --> F[Option 3]
-    C --> G[Option 4]
+    A[Mármore e Granito] --> B(["Configurações"])
+    A --> C([Rotinas])
+    B --> D["[MG] Classificação de Dureza"]
+    B --> E["[MG] Classe de Material"]
+    B --> F["[MG] Produto"]
+    C --> G["[MG] Marcação"]
 ```
+
+## Configurações de Telas
 
 | Evento/Propriedade | Valor |
 |--|--|

@@ -7,7 +7,9 @@ authors:
 ---
 # Projeto MarGran
 
-Bem vindo ao Projeto MarGran - Mármore e Granito Sankhya Om. Este conjunto de documentação técnica pretende apresentar informações relevantes [O que é o Projeto MarGran](./overview/what-is-margran.md) e sua [arquitetura](./overview/architectures-overview.md).
+Bem vindo ao Projeto MarGran - Mármore e Granito Sankhya Om. Este conjunto de documentação técnica pretende apresentar informações relevantes sobre [o Projeto MarGran](./overview/what-is-margran.md) e sua [arquitetura](./overview/architectures-overview.md).
+
+Veja todas as informações referentes à criação da [extensão](./_extension/index.md).
 
 !!! warning "Em construção"
 
