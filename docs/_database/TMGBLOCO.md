@@ -1,7 +1,7 @@
 ---
 id: tmgbloco
 title: '[MG] Bloco'
-description: Representação da estrutura de Blocos.
+description: Representação da estrutura de um Bloco.
 authors:
     - Cassio Menezes
 tags: 
