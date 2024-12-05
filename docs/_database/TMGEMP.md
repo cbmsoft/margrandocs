@@ -1,6 +1,6 @@
 ---
 id: tmgemp
-title: '[MG] Prefere'
+title: '[MG] Preferencias por Empresa'
 description: Representacao da negociacao de compra de Blocos.
 authors:
     - Cassio Menezes
@@ -28,7 +28,7 @@ erDiagram
 
     TMGEMP {
         number CODEMP PK, FK "Cód. Empresa"
-        varchar NOMEFANTASIA "Nome Fantasia"
+        varchar ATIVO "Ativo"
         number NUMODPEDIDOMARCACAO FK "Modelo Pedido Compra Marcação"
     }
     TSIEMP {

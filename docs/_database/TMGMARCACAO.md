@@ -10,6 +10,9 @@ tags:
 ---
 # TMGMARCACAO
 
+**Nome tabela**: TMGMARCACAO  
+**Nome instância**: MgMarcacao
+
 ## Detalhamento do Objeto
 
 O Marcador compra Blocos diretamente na pedreira, anotando as medidas (bruta e líquida) do material, valor unitário de compra, valor do frete, classificação e observações. Cada bloco tem um número de pedreira próprio.
@@ -21,20 +24,23 @@ Esta tabela registra as negociações de compra de blocos de uma determinada ped
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
 | TSIEMP | Tabela | Empresa |
-| TGFVEN | | |
-| TGFPAR | | |
-| TGFTPV | | |
+| TGFVEN | Tabela | Vendedor |
+| TGFPAR | Tabela | Parceiro |
+| TGFTPV | Tabela | TGFTPV |
 | [TMGBLOCO](TMGBLOCO.md) | Tabela | [MG] Bloco |
+| [TMGEMP](TMGEMP.md) | Tabela | [MG] Preferencias por Empresa |
 
 ### Modelagem
 
 ```mermaid
 erDiagram
-    TMGMARCACAO ||--|{ TMGBLOCO : contains
     TMGMARCACAO ||--|| TSIEMP : contains
+    TMGMARCACAO ||--|{ TMGBLOCO : contains
     TMGMARCACAO ||--|| TGFVEN : contains
     TMGMARCACAO ||--|| TGFPAR : contains
     TMGMARCACAO ||--|| TGFTPV : contains
+
+    TSIEMP ||--|| TMGEMP : "ATIVO='S'"
 
     TMGMARCACAO {
         number NUMARCACAO PK "Nro. Marcação"
@@ -45,12 +51,12 @@ erDiagram
         date DTMARCACAO "Dt. Marcação"
         varchar OBSERVACAO "Observação"
     }
+    TSIEMP {
+        number CODEMP PK "Cód. Empresa"
+    }
     TMGBLOCO {
         number NUMARCACAO PK "Nro. Marcação"
         number NUBLOCO PK "Id. Bloco"
-    }
-    TSIEMP {
-        number CODEMP PK "Cód. Empresa"
     }
     TGFVEN {
         number CODVEND PK "Código"
@@ -61,7 +67,13 @@ erDiagram
     TGFTPV {
         number CODTIPVENDA PK "Tipo de Negociação"
     }
+    TMGEMP {
+        number CODEMP PK "Cód. Empresa"
+        varchar ATIVO "Ativo"
+    }
 ```
+
+![Script](https://github.com/Pwn-Dev/MarGran-Dev/blob/main/PWN-DbScripts/TMGBLOCO.sql)
 
 ### Histórico de Revisões
 
