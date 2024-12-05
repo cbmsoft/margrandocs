@@ -80,5 +80,6 @@ nav:
   - Visão Geral:
     - O que é o MarGran: 'overview/what-is-margran.md'
     - Arquitetura: 'overview/architectures-overview.md'
+  - 'Estrutura de Dados': '_database/index.md'
   - Sobre: about.md
   - tags: 'tags.md'
