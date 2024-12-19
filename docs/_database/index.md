@@ -17,6 +17,8 @@ tags:
 | [TMGCLASSEMAT](TMGCLASSEMAT.md) |
 | [TMGDUREZA](TMGDUREZA.md) |
 | [TMGEMP](TMGEMP.md) |
+| [TMGFICHA](TMGFICHA.md) |
+| [TMGFICHAXBLOCO](TMGFICHAXBLOCO.md) |
 | [TMGMARCACAO](TMGMARCACAO.md) |
 | [TMGPRODUTO](TMGPRODUTO.md) |
 
@@ -35,5 +37,16 @@ erDiagram
     TMGBLOCO ||--o| TMGBLOCOXITEM : contains
     TMGBLOCOXITEM |o--o| TGFITE : contains
 
-    TSIEMP ||--|| TMGEMP : contains
+    TSIEMP ||--|| TMGEMP : exists
+```
+
+```mermaid
+erDiagram
+    TMGFICHA ||--|| TSIEMP : contains
+    TMGFICHA ||--|| TMGFICHAXBLOCO : contains
+    TMGFICHAXBLOCO ||--|| TMGBLOCO : contains
+    TMGBLOCO ||--|| TMGPRODUTO : contains
+    TMGPRODUTO ||--|| TGFPRO : contains
+
+    TSIEMP ||--|| TMGEMP : exists
 ```

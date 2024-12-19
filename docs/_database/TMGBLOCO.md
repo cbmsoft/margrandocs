@@ -26,15 +26,13 @@ O Marcador compra o Bloco diretamente na pedreira, anotando as medidas (bruta e 
 
 ```mermaid
 erDiagram
+    TMGMARCACAO ||--|{ TMGBLOCO : contains
     TMGBLOCO ||--|| TMGPRODUTO : contains
 
     TMGBLOCO {
-        number CODEMP PK "Cód. Empresa"
-        number IDBLOCO PK "Id."
-        number CODVEND FK "Marcador"
-        number CODPARC FK "Parceiro"
+        number NUMARCACAO PK "Nro. Marcação"
+        number SEQUENCIA PK "Sequência"
         number CODPROD FK "Cód. Produto"
-        date DTMARCACAO "Dt. Marcação"
         varchar CODBLOCO "Cód. Bloco (Pedreira)"
         number COMPRIMENTO "Comprimento"
         number ALTURA "Altura"
@@ -62,6 +60,7 @@ classDiagram
       +persists() DynamicVO
     }
 ```
+![alt text](image.png)
 
 ### Histórico de Revisões
 
