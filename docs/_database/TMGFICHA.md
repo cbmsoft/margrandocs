@@ -33,8 +33,8 @@ erDiagram
         number CODEMP "Cód. Empresa"
         number IDBLOCO PK "Id. Bloco"
         number COMPRIMENTO_SAI "Comprimento Saída"
-        number ALTURA_SAI "Altura Saída."
-        number LARGURA_SAI "Largura Saída."
+        number ALTURA_SAI "Altura Saída"
+        number LARGURA_SAI "Largura Saída"
     }
     TMGFICHAXBLOCO {
         number CODEMP "Cód. Empresa"
