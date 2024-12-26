@@ -10,6 +10,9 @@ tags:
 ---
 # TMGFICHAXBLOCO
 
+**Nome tabela**: TMGFICHAXBLOCO  
+**Nome instância**: MgFichaXBloco
+
 ## Detalhamento do Objeto
 
 A Ficha de Bloco é um facilitador que visa agrupar todas as informações a respeito de compras, produção, vendas, previsão de produção e todo o processo da vida do Bloco. 

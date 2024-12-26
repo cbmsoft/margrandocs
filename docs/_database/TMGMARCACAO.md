@@ -26,9 +26,11 @@ Esta tabela registra as negociações de compra de blocos de uma determinada ped
 | TSIEMP | Tabela | Empresa |
 | TGFVEN | Tabela | Vendedor |
 | TGFPAR | Tabela | Parceiro |
-| TGFTPV | Tabela | TGFTPV |
+| TGFTPV | Tabela | TipoNegociacao |
+| TFFCAB | Tabela | CabecalhoNota
 | [TMGBLOCO](TMGBLOCO.md) | Tabela | [MG] Bloco |
 | [TMGEMP](TMGEMP.md) | Tabela | [MG] Preferencias por Empresa |
+| [TMGMARCACAOXPEDIDO](TMGMARCACAOXPEDIDO.md) | Tabela | [MG] Marcacao x Pedido |
 
 ### Modelagem
 
@@ -39,8 +41,10 @@ erDiagram
     TMGMARCACAO ||--|| TGFVEN : contains
     TMGMARCACAO ||--|| TGFPAR : contains
     TMGMARCACAO ||--|| TGFTPV : contains
+    TMGMARCACAO o|--|o TMGMARCACAOXPEDIDO: places
+    TMGMARCACAOXPEDIDO o|--|o TGFCAB: constains
 
-    TSIEMP ||--|| TMGEMP : "ATIVO='S'"
+    TSIEMP ||--|| TMGEMP : "exists ATIVO='S'"
 
     TMGMARCACAO {
         number NUMARCACAO PK "Nro. Marcação"
@@ -53,6 +57,10 @@ erDiagram
     }
     TSIEMP {
         number CODEMP PK "Cód. Empresa"
+    }
+    TMGEMP {
+        number CODEMP PK "Cód. Empresa"
+        varchar ATIVO "Ativo"
     }
     TMGBLOCO {
         number NUMARCACAO PK "Nro. Marcação"
@@ -67,13 +75,16 @@ erDiagram
     TGFTPV {
         number CODTIPVENDA PK "Tipo de Negociação"
     }
-    TMGEMP {
-        number CODEMP PK "Cód. Empresa"
-        varchar ATIVO "Ativo"
+    TMGMARCACAOXPEDIDO {
+        number NUMARCACAO PK "Nro. Marcação"
+        number NUNOTA PK "Nro. Único"
+    }
+    TGFCAB {
+        number NUNOTA PK "Nro. Único"
     }
 ```
 
-![Script](https://github.com/Pwn-Dev/MarGran-Dev/blob/main/PWN-DbScripts/TMGBLOCO.sql)
+[Script](https://github.com/Pwn-Dev/MarGran-Dev/blob/main/PWN-DbScripts/TMGBLOCO.sql)
 
 ### Histórico de Revisões
 
