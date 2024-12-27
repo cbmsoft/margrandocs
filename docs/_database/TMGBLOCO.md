@@ -27,8 +27,8 @@ O Marcador compra o Bloco diretamente na pedreira, anotando as medidas (bruta e 
 ```mermaid
 erDiagram
     TMGMARCACAO ||--|{ TMGBLOCO : contains
-    TMGBLOCO ||--|| TMGPRODUTO : contains
-    TMGPRODUTO ||--|| TGFPRO : contains
+    TMGBLOCO ||--|| TGFPRO : contains
+    TGFPRO ||--|| TMGPRODUTO : exists
 
     TMGBLOCO {
         number NUMARCACAO PK "Nro. Marcação"
