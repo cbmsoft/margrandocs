@@ -28,6 +28,7 @@ O Marcador compra o Bloco diretamente na pedreira, anotando as medidas (bruta e 
 erDiagram
     TMGMARCACAO ||--|{ TMGBLOCO : contains
     TMGBLOCO ||--|| TMGPRODUTO : contains
+    TMGPRODUTO ||--|| TGFPRO : contains
 
     TMGBLOCO {
         number NUMARCACAO PK "Nro. Marcação"
@@ -46,6 +47,9 @@ erDiagram
         varchar OBSERVACAO "Observação"
     }
     TMGPRODUTO {
+        number CODPROD PK,FK "Cód. Produto"
+    }
+    TGFPRO {
         number CODPROD PK "Cód. Produto"
     }
 ```

@@ -11,33 +11,99 @@ tags:
 
 ## Tables
 
-|  |
+| Tables |
 |--|
 | [TMGBLOCO](TMGBLOCO.md) |
+| [TMGBLOCOXITEM](TMGBLOCOXITEM.md) |
 | [TMGCLASSEMAT](TMGCLASSEMAT.md) |
 | [TMGDUREZA](TMGDUREZA.md) |
 | [TMGEMP](TMGEMP.md) |
 | [TMGFICHA](TMGFICHA.md) |
 | [TMGFICHAXBLOCO](TMGFICHAXBLOCO.md) |
 | [TMGMARCACAO](TMGMARCACAO.md) |
+| [TMGMARCACAOXPEDIDO](TMGMARCACAOXPEDIDO.md) |
 | [TMGPRODUTO](TMGPRODUTO.md) |
 
 ### Modelagem
 
 ```mermaid
 erDiagram
+    TGFVEN ||--|| TMGMARCACAO : contains
+    TGFPAR ||--|| TMGMARCACAO : contains
+    TGFTPV ||--|| TMGMARCACAO : contains
     TMGMARCACAO ||--|| TSIEMP : contains
+    TSIEMP ||--|| TMGEMP : exists
     TMGMARCACAO ||--|{ TMGBLOCO : contains
     TMGBLOCO ||--|| TMGPRODUTO : contains
-    TMGBLOCO ||--|| TMGCLASSEMAT : contains
-    TMGBLOCO ||--|| TMGDUREZA : contains
     TMGPRODUTO ||--|| TGFPRO : contains
-    TMGMARCACAO |o--o| TGFCAB : places
+    TMGPRODUTO ||--o{ TMGDUREZA : contains
+    TMGPRODUTO ||--o{ TMGCLASSEMAT : contains
+    TMGMARCACAO o|--|o TMGMARCACAOXPEDIDO : places
+    TMGMARCACAOXPEDIDO ||--|| TGFCAB : contains
     TGFCAB ||--|{ TGFITE : contains
-    TMGBLOCO ||--o| TMGBLOCOXITEM : contains
-    TMGBLOCOXITEM |o--o| TGFITE : contains
+    TMGMARCACAOXPEDIDO ||--|{ TMGBLOCOXITEM : contains
+    TMGBLOCOXITEM ||--|| TGFITE : contains
+    TMGBLOCO ||--|| TMGBLOCOXITEM : contains
 
-    TSIEMP ||--|| TMGEMP : exists
+
+    TGFVEN {
+        number CODVEND PK "Código"
+    }
+    TGFPAR {
+        number CODPARC PK "Cód. Parceiro"
+    }
+    TGFTPV {
+        number CODTIPVENDA PK "Tipo de Negociação"
+    }
+    TMGMARCACAO {
+        number NUMARCACAO PK "Nro. Marcação"
+        number CODEMP FK "Cód. Empresa"
+        number CODVEND FK "Marcador"
+        number CODPARC FK "Cód. Parceiro"
+        number CODTIPVENDA FK "Tipo Negociação"
+    }
+    TMGBLOCO {
+        number NUMARCACAO PK "Nro. Marcação"
+        number SEQUENCIA PK "Sequência"
+        number CODPROD FK "Cód. Produto"
+    }
+    TMGPRODUTO {
+        number CODPROD PK,FK "Cód. Produto"
+        number IDDUREZA FK "Classificação de Dureza"
+        number CODCLASSMAT FK "Classe do Material"
+    }
+    TGFPRO {
+        number CODPROD PK "Cód. Produto"
+    }
+    TMGDUREZA {
+        number ID PK "Id."
+    }
+    TMGCLASSEMAT {
+        number ID PK "Id."
+    }
+    TMGMARCACAOXPEDIDO {
+        number NUMARCACAO PK,FK "Nro. Marcação"
+        number NUNOTA PK,FK "Nro. Único"
+    }
+    TMGBLOCOXITEM {
+        number NUMARCACAO PK,FK "Nro. Marcação"
+        number NUNOTA PK,FK "Nro. Único"
+        number SEQUENCIA PK,FK "Seq.Item"
+        number SEQMARCACAO PK,FK "Seq.Marcação"
+    }
+    TGFCAB {
+        number NUNOTA PK "Nro. Único"
+    }
+    TGFITE {
+        number NUNOTA PK "Nro. Único"
+        number SEQUENCIA PK "Sequência"
+    }
+    TSIEMP {
+        number CODEMP PK "Cód. Empresa"
+    }
+    TMGEMP {
+        number CODEMP PK "Cód. Empresa"
+    }
 ```
 
 ```mermaid

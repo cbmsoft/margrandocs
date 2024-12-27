@@ -36,19 +36,28 @@ Esta tabela registra as negociações de compra de blocos de uma determinada ped
 
 ```mermaid
 erDiagram
+    TGFVEN ||--|| TMGMARCACAO : contains
+    TGFPAR ||--|| TMGMARCACAO : contains
+    TGFTPV ||--|| TMGMARCACAO : contains
     TMGMARCACAO ||--|| TSIEMP : contains
     TMGMARCACAO ||--|{ TMGBLOCO : contains
-    TMGMARCACAO ||--|| TGFVEN : contains
-    TMGMARCACAO ||--|| TGFPAR : contains
-    TMGMARCACAO ||--|| TGFTPV : contains
     TMGMARCACAO o|--|o TMGMARCACAOXPEDIDO: places
     TMGMARCACAOXPEDIDO o|--|o TGFCAB: constains
 
     TSIEMP ||--|| TMGEMP : "exists ATIVO='S'"
 
+    TGFVEN {
+        number CODVEND PK "Código"
+    }
+    TGFPAR {
+        number CODPARC PK "Cód. Parceiro"
+    }
+    TGFTPV {
+        number CODTIPVENDA PK "Tipo de Negociação"
+    }
     TMGMARCACAO {
         number NUMARCACAO PK "Nro. Marcação"
-        number CODEMP "Cód. Empresa"
+        number CODEMP FK "Cód. Empresa"
         number CODVEND FK "Marcador"
         number CODPARC FK "Cód. Parceiro"
         number CODTIPVENDA FK "Tipo Negociação"
@@ -65,15 +74,6 @@ erDiagram
     TMGBLOCO {
         number NUMARCACAO PK "Nro. Marcação"
         number NUBLOCO PK "Id. Bloco"
-    }
-    TGFVEN {
-        number CODVEND PK "Código"
-    }
-    TGFPAR {
-        number CODPARC PK "Cód. Parceiro"
-    }
-    TGFTPV {
-        number CODTIPVENDA PK "Tipo de Negociação"
     }
     TMGMARCACAOXPEDIDO {
         number NUMARCACAO PK "Nro. Marcação"
