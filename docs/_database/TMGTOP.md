@@ -5,7 +5,6 @@ description: Informacoes complementares para a TOP
 authors:
     - Cassio Menezes
 tags: 
-- database
 - table
 ---
 # TMGTOP
@@ -16,7 +15,21 @@ tags:
 
 ## Detalhamento do Objeto
 
-Preferências por empresa
+Preferências por TOP
+
+| Evento | Valor |
+|--|--|
+| **Nome tabela** | TMGTOP |
+| **Descrição** | [MG] Tipos de Operacao - TOP |
+| **Nome instância** | MgTipoOperacao |
+| **Descrição instância** | Complemento do Produto |
+| **Lançador** |
+| Descrição do Controle | [MG] Tipos de Operacao - TOP |
+| Identificador | br.com.sankhya.pwn.margran.TiposDeOperacao |
+| Evento | ${dynaform:MgTipoOperacao} |
+| contexto | pwnmargran |
+| entityName | MgTipoOperacao |
+| resourceID | br.com.pwn.margran.core.mgtipooperacao |
 
 ### Objetos Relacionados
 
@@ -44,4 +57,5 @@ erDiagram
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
+| 1.2 | 03/01/2025 | Cassio Menezes | Nova estrutura |
 | 1.0 | 03/01/2024 | Cassio Menezes | Criação do documento |

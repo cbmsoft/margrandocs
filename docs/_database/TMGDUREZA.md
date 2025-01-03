@@ -5,39 +5,33 @@ description: Códigos de classificação de dureza de minerais.
 authors:
     - Cassio Menezes
 tags: 
-- database
 - table
 ---
 # TMGDUREZA
 
 ## Detalhamento do Objeto
 
-  Códigos de classificação de dureza de minerais.
+Códigos de classificação de dureza de minerais.
 
-### Dicionário de Dados
-
-#### Instância
-
-| Nome | Descrição | path |
-|--|--|--|
-| MgDureza | Classificação de Dureza de Minerais | `<descriptor location="br/com/pwn/margran/core/dwfdata/dd/MgDureza.xml" name="MgDureza" />` |
-
-#### Lançador
-
-| Nome | Descrição |
+| Evento | Valor |
 |--|--|
-| MgDureza | Classificação de Dureza de Minerais |
-
-```powershell
-${dynaform:MgDureza}
-br.com.pwn.margran.core.mgdureza
-```
+| **Nome tabela** | TMGDUREZA |
+| **Descrição** | [MG] Classificação de Dureza |
+| **Nome instância** | MgDureza |
+| **Descrição instância** | Classificação de Dureza de Minerais |
+| **Lançador** |
+| Descrição do Controle | [MG] Classificação de Dureza |
+| Identificador | br.com.sankhya.pwn.margran.ClassificacaoDureza |
+| Evento | ${dynaform:MgDureza} |
+| contexto | pwnmargran |
+| entityName | MgDureza |
+| resourceID | br.com.pwn.margran.core.mgdureza |
 
 ### Objetos Relacionados
 
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
-| TMGPRODUTO | Tabela | [MG] Produto |
+| [TMGPRODUTO](TMGPRODUTO.md) | Tabela | [MG] Produto |
 
 ### Modelagem
 
@@ -45,24 +39,13 @@ br.com.pwn.margran.core.mgdureza
 erDiagram
     TMGPRODUTO ||--|| TMGDUREZA : contains
 
-    TMGDUREZA {
-        number ID PK "Id."
-        varchar DESCRICAO "Descrição"
-    }
     TMGPRODUTO {
         number CODPROD PK "Cód. Produto"
         number IDDUREZA FK "Classificação de Dureza"
     }
-```
-
-```mermaid
-classDiagram
-    class MgDureza{
-      -BigDecimal id
-      -String descricao
-      +loadByPk(Object... keyValue)
-      +loadByVO(DynamicVO vo)
-      +persists() DynamicVO
+    TMGDUREZA {
+        number ID PK "Id."
+        varchar DESCRICAO "Descrição"
     }
 ```
 
@@ -70,5 +53,6 @@ classDiagram
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
-| 1.1 | 19/11/2025 | Cassio Menezes | DD |
-| 1.0 | 12/11/2025 | Cassio Menezes | Criação do documento |
+| 1.2 | 03/01/2025 | Cassio Menezes | Nova estrutura |
+| 1.1 | 19/11/2024 | Cassio Menezes | DD |
+| 1.0 | 12/11/2024 | Cassio Menezes | Criação do documento |

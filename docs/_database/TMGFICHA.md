@@ -1,11 +1,10 @@
 ---
 id: tmgficha
 title: '[MG] Ficha'
-description: Representacao da estrutura de um Ficha.
+description: Representacao da estrutura da Ficha de Bloco.
 authors:
     - Cassio Menezes
 tags: 
-- database
 - table
 ---
 # TMGFICHA
@@ -13,6 +12,20 @@ tags:
 ## Detalhamento do Objeto
 
 A Ficha de Bloco é um facilitador que visa agrupar todas as informações a respeito de compras, produção, vendas, previsão de produção e todo o processo da vida do Bloco. 
+
+| Evento | Valor |
+|--|--|
+| **Nome tabela** | TMGFICHA |
+| **Descrição** | [MG] Ficha Técnica |
+| **Nome instância** | MgFicha |
+| **Descrição instância** | Ficha Técnica |
+| **Lançador** |
+| Descrição do Controle | [MG] Ficha Técnica |
+| Identificador | br.com.sankhya.pwn.margran.Ficha |
+| Evento | ${dynaform:MgFicha} |
+| contexto | pwnmargran |
+| entityName | MgFicha |
+| resourceID | br.com.pwn.margran.ficha |
 
 ### Objetos Relacionados
 
@@ -27,7 +40,6 @@ A Ficha de Bloco é um facilitador que visa agrupar todas as informações a res
 erDiagram
     TMGFICHA ||--|| TMGFICHAXBLOCO : contains
     TMGFICHAXBLOCO ||--|| TMGBLOCO : contains
-    TMGBLOCO ||--|| TMGPRODUTO : contains
 
     TMGFICHA {
         number CODEMP "Cód. Empresa"
@@ -46,13 +58,11 @@ erDiagram
         number NUMARCACAO PK "Nro. Marcação"
         number SEQUENCIA PK "Sequência"
     }
-    TMGPRODUTO {
-        number CODPROD PK "Cód. Produto"
-    }
 ```
 
 ### Histórico de Revisões
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
-| 1.0 | 19/12/2025 | Cassio Menezes | Criação do documento |
+| 1.2 | 03/01/2025 | Cassio Menezes | Nova estrutura |
+| 1.0 | 19/12/2024 | Cassio Menezes | Criação do documento |

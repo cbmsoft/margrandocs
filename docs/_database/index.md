@@ -1,6 +1,6 @@
 ---
-id: database
-title: Database
+id: databasedoc
+title: Database Documentation
 description: Database objects documentation.
 authors:
     - Cassio Menezes

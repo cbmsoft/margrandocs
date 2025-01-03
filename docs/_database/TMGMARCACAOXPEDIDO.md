@@ -5,16 +5,18 @@ description: Ligacao entre Marcacao e Pedido de Compra de Marcacao gerado.
 authors:
     - Cassio Menezes
 tags: 
-- database
 - table
 ---
 # TMGMARCACAOXPEDIDO
 
-**Nome tabela**: TMGMARCACAOXPEDIDO  
-**Descrição**: [MG] Marcacao x Pedido  
-**Nome instância**: MgMarcacaoXPedido
-
 ## Detalhamento do Objeto
+
+| Evento | Valor |
+|--|--|
+| **Nome tabela** | TMGMARCACAOXPEDIDO |
+| **Descrição** | [MG] Marcacao x Pedido |
+| **Nome instância** | MgMarcacaoXPedido |
+| **Descrição instância** | Pedido de Compra Marcação |
 
 ### Modelagem
 
@@ -39,4 +41,5 @@ erDiagram
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
-| 1.0 | 23/12/2025 | Cassio Menezes | Criação do documento |
+| 1.2 | 03/01/2025 | Cassio Menezes | Nova estrutura |
+| 1.0 | 23/12/2024 | Cassio Menezes | Criação do documento |

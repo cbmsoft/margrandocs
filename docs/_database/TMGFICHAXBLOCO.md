@@ -5,17 +5,20 @@ description: Ligacao entre a Ficha e o Bloco de origem.
 authors:
     - Cassio Menezes
 tags: 
-- database
 - table
 ---
 # TMGFICHAXBLOCO
 
-**Nome tabela**: TMGFICHAXBLOCO  
-**Nome instância**: MgFichaXBloco
-
 ## Detalhamento do Objeto
 
 A Ficha de Bloco é um facilitador que visa agrupar todas as informações a respeito de compras, produção, vendas, previsão de produção e todo o processo da vida do Bloco. 
+
+| Evento | Valor |
+|--|--|
+| **Nome tabela** | TMGFICHAXBLOCO |
+| **Descrição** | [MG] Ficha x Bloco |
+| **Nome instância** | MgFichaXBloco |
+| **Descrição instância** | Ficha x Bloco |
 
 ### Objetos Relacionados
 
@@ -28,9 +31,13 @@ A Ficha de Bloco é um facilitador que visa agrupar todas as informações a res
 
 ```mermaid
 erDiagram
+    TMGFICHA ||--|| TMGFICHAXBLOCO : contains
     TMGFICHAXBLOCO ||--|| TMGBLOCO : contains
-    TMGBLOCO ||--|| TMGPRODUTO : contains
 
+    TMGFICHA {
+        number CODEMP "Cód. Empresa"
+        number IDBLOCO PK "Id. Bloco"
+    }
     TMGFICHAXBLOCO {
         number CODEMP "Cód. Empresa"
         number IDBLOCO PK "Id. Bloco"
@@ -41,13 +48,11 @@ erDiagram
         number NUMARCACAO PK "Nro. Marcação"
         number SEQUENCIA PK "Sequência"
     }
-    TMGPRODUTO {
-        number CODPROD PK "Cód. Produto"
-    }
 ```
 
 ### Histórico de Revisões
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
-| 1.0 | 19/12/2025 | Cassio Menezes | Criação do documento |
+| 1.2 | 03/01/2025 | Cassio Menezes | Nova estrutura |
+| 1.0 | 19/12/2024 | Cassio Menezes | Criação do documento |

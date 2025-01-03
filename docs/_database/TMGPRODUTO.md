@@ -5,7 +5,6 @@ description: Campos complementares do cadastro de produtos, necessários aos pro
 authors:
     - Cassio Menezes
 tags: 
-- database
 - table
 ---
 # TMGPRODUTO
@@ -13,6 +12,20 @@ tags:
 ## Detalhamento do Objeto
 
 Campos complementares do cadastro de produtos, necessários aos procedimentos do módulo Mármore e Granito.
+
+| Evento | Valor |
+|--|--|
+| **Nome tabela** | TMGPRODUTO |
+| **Descrição** | [MG] Produto |
+| **Nome instância** | MgProduto |
+| **Descrição instância** | Complemento do Produto |
+| **Lançador** |
+| Descrição do Controle | [MG] Produto |
+| Identificador | br.com.sankhya.pwn.margran.Produto |
+| Evento | ${dynaform:MgProduto} |
+| contexto | pwnmargran |
+| entityName | MgProduto |
+| resourceID | br.com.pwn.margran.core.mgproduto |
 
 ### Objetos Relacionados
 
@@ -26,7 +39,7 @@ Campos complementares do cadastro de produtos, necessários aos procedimentos do
 
 ```mermaid
 erDiagram
-    TGFPRO ||--|| TMGPRODUTO : contains
+    TMGPRODUTO ||--|| TGFPRO : contains
     TMGPRODUTO ||--o{ TMGDUREZA : contains
     TMGPRODUTO ||--o{ TMGCLASSEMAT : contains
     TMGPRODUTO ||--|| TIPOPROD : enum
@@ -71,29 +84,9 @@ erDiagram
         varchar _2 "Resinado"
     }
 ```
+### Campos Calculados
 
-```mermaid
-classDiagram
-    class MgProduto{
-      -BigDecimal codProd
-      -String tipoProd
-      -String descrIngles
-      -MgDureza dureza
-      -BigDecimal pesoM3
-      -BigDecimal fatQtdChapas
-      -MgClasseMat classificacao
-      -String tipoPoli
-      -BigDecimal espessLamFio
-      -BigDecimal espessuraChapa
-      -BigDecimal bkVinculo
-      -BigDecimal alturaUtil
-      -BigDecimal pesoLamina
-      -BigDecimal pesoPMm
-      +loadByPk(Object... keyValue)
-      +loadByVO(DynamicVO vo)
-      +persists() DynamicVO
-    }
-```
+#### DESCRPROD
 
 ```java
 $sql.select("P.DESCRPROD","TGFPRO P","P.CODPROD = "+$col_CODPROD);
@@ -102,19 +95,12 @@ $sql.select("P.DESCRPROD","TGFPRO P","P.CODPROD = "+$col_CODPROD);
 	}
 	
 return null;
-
-
-return com.sankhya.util.BigDecimalUtil.getValueOrZero((java.math.BigDecimal) $col_KMCHEGADA).doubleValue() - com.sankhya.util.BigDecimalUtil.getValueOrZero((java.math.BigDecimal) $col_KMSAIDA).doubleValue()
-
-return com.sankhya.util.BigDecimalUtil.getValueOrZero($col_COMPRIMENTO).multiply(com.sankhya.util.BigDecimalUtil.getValueOrZero($col_ALTURA)).multiply(com.sankhya.util.BigDecimalUtil.getValueOrZero($col_LARGURA))
-
-return com.sankhya.util.BigDecimalUtil.getValueOrZero($col_COMPRIMENTO_LIQ).multiply(com.sankhya.util.BigDecimalUtil.getValueOrZero($col_ALTURA_LIQ)).multiply(com.sankhya.util.BigDecimalUtil.getValueOrZero($col_LARGURA_LIQ))
-
 ```
 
 ### Histórico de Revisões
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
+| 1.2 | 03/01/2025 | Cassio Menezes | Nova estrutura |
 | 1.1 | 19/11/2025 | Cassio Menezes | Ajuste nomenclatura |
 | 1.0 | 12/11/2025 | Cassio Menezes | Criação do documento |
