@@ -10,6 +10,10 @@ tags:
 ---
 # TMGEMP
 
+**Nome tabela**: TMGEMP  
+**Descrição**: [MG] Preferencias por Empresa  
+**Nome instância**: MgEmpresa
+
 ## Detalhamento do Objeto
 
 Preferências por empresa
@@ -40,4 +44,4 @@ erDiagram
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
-| 1.0 | 05/12/2025 | Cassio Menezes | Criação do documento |
+| 1.0 | 05/12/2024 | Cassio Menezes | Criação do documento |
