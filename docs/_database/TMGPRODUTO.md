@@ -44,6 +44,7 @@ erDiagram
     TMGPRODUTO ||--o{ TMGCLASSEMAT : contains
     TMGPRODUTO ||--|| TIPOPROD : enum
     TMGPRODUTO ||--|| TIPOPOLI : enum
+    TMGPRODUTO ||--|| CLASSPRODUCAO : enum
 
     TMGPRODUTO {
         number CODPROD PK,FK "Cód. Produto"
@@ -60,6 +61,7 @@ erDiagram
         number ALTURAUTIL "Altura Útil mm (insumos: Lâminas)"
         number PESOLAMINA "Peso KG (Insumos:Laminas)"
         number PESOPMM "Peso por Milimetro (insumos: Lâminas)"
+        varchar CLASSPRODUCAO "Classificação Produção"
     }
     TGFPRO {
         number CODPROD PK "Código"
@@ -83,6 +85,16 @@ erDiagram
         varchar _1 "Polimento Direto"
         varchar _2 "Resinado"
     }
+    CLASSPRODUCAO {
+        varchar _1 "Artificial"
+        varchar _2 "Basico PR"
+        varchar _3 "Basico PD"
+        varchar _4 "Exotico"
+        varchar _5 "Marmore"
+        varchar _6 "Quartizito"
+        varchar _7 "Super Exotico"
+        varchar _8 "Super Quartizito"
+    }
 ```
 ### Campos Calculados
 
@@ -101,6 +113,7 @@ return null;
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
+| 1.3 | 03/01/2025 | Cassio Menezes | Adicionar campo |
 | 1.2 | 03/01/2025 | Cassio Menezes | Nova estrutura |
-| 1.1 | 19/11/2025 | Cassio Menezes | Ajuste nomenclatura |
-| 1.0 | 12/11/2025 | Cassio Menezes | Criação do documento |
+| 1.1 | 19/11/2024 | Cassio Menezes | Ajuste nomenclatura |
+| 1.0 | 12/11/2024 | Cassio Menezes | Criação do documento |

@@ -27,6 +27,8 @@ tags:
 
 ### Modelagem
 
+#### Marcação
+
 ```mermaid
 erDiagram
     TGFVEN ||--|| TMGMARCACAO : contains
@@ -37,15 +39,14 @@ erDiagram
     TMGMARCACAO ||--|{ TMGBLOCO : contains
     TMGBLOCO ||--|| TMGPRODUTO : contains
     TMGPRODUTO ||--|| TGFPRO : contains
-    TMGPRODUTO ||--o{ TMGDUREZA : contains
-    TMGPRODUTO ||--o{ TMGCLASSEMAT : contains
+    TMGPRODUTO ||--o| TMGDUREZA : contains
+    TMGPRODUTO ||--o| TMGCLASSEMAT : contains
     TMGMARCACAO o|--|o TMGMARCACAOXPEDIDO : places
     TMGMARCACAOXPEDIDO ||--|| TGFCAB : contains
     TGFCAB ||--|{ TGFITE : contains
     TMGMARCACAOXPEDIDO ||--|{ TMGBLOCOXITEM : contains
     TMGBLOCOXITEM ||--|| TGFITE : contains
     TMGBLOCO ||--|| TMGBLOCOXITEM : contains
-
 
     TGFVEN {
         number CODVEND PK "Código"
@@ -107,6 +108,8 @@ erDiagram
     }
 ```
 
+#### Ficha do Bloco
+
 ```mermaid
 erDiagram
     TMGFICHA ||--|| TSIEMP : contains
@@ -114,6 +117,44 @@ erDiagram
     TMGFICHAXBLOCO ||--|| TMGBLOCO : contains
     TMGBLOCO ||--|| TMGPRODUTO : contains
     TMGPRODUTO ||--|| TGFPRO : contains
+    TMGPRODUTO ||--o| TMGDUREZA : contains
+    TMGPRODUTO ||--o| TMGCLASSEMAT : contains
 
     TSIEMP ||--|| TMGEMP : exists
+
+    TMGFICHA {
+        number CODEMP PK "Cód. Empresa"
+        number IDBLOCO PK "Id. Bloco"
+    }
+    TMGFICHAXBLOCO {
+        number CODEMP PK "Cód. Empresa"
+        number IDBLOCO PK "Id. Bloco"
+        number NUMARCACAO PK "Nro. Marcação"
+        number SEQUENCIA PK "Sequência"
+    }
+    TMGBLOCO {
+        number NUMARCACAO PK "Nro. Marcação"
+        number SEQUENCIA PK "Sequência"
+        number CODPROD FK "Cód. Produto"
+    }
+    TMGPRODUTO {
+        number CODPROD PK,FK "Cód. Produto"
+        number IDDUREZA FK "Classificação de Dureza"
+        number CODCLASSMAT FK "Classe do Material"
+    }
+    TGFPRO {
+        number CODPROD PK "Cód. Produto"
+    }
+    TMGDUREZA {
+        number ID PK "Id."
+    }
+    TMGCLASSEMAT {
+        number ID PK "Id."
+    }
+    TSIEMP {
+        number CODEMP PK "Cód. Empresa"
+    }
+    TMGEMP {
+        number CODEMP PK "Cód. Empresa"
+    }
 ```

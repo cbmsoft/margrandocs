@@ -38,18 +38,21 @@ A Ficha de Bloco é um facilitador que visa agrupar todas as informações a res
 
 ```mermaid
 erDiagram
+    TMGFICHA ||--|| TSIEMP : contains
     TMGFICHA ||--|| TMGFICHAXBLOCO : contains
     TMGFICHAXBLOCO ||--|| TMGBLOCO : contains
 
+    TSIEMP ||--|| TMGEMP : exists
+
     TMGFICHA {
-        number CODEMP "Cód. Empresa"
+        number CODEMP PK "Cód. Empresa"
         number IDBLOCO PK "Id. Bloco"
         number COMPRIMENTO_SAI "Comprimento Saída"
         number ALTURA_SAI "Altura Saída"
         number LARGURA_SAI "Largura Saída"
     }
     TMGFICHAXBLOCO {
-        number CODEMP "Cód. Empresa"
+        number CODEMP PK "Cód. Empresa"
         number IDBLOCO PK "Id. Bloco"
         number NUMARCACAO PK "Nro. Marcação"
         number SEQUENCIA PK "Sequência"
@@ -57,6 +60,12 @@ erDiagram
     TMGBLOCO {
         number NUMARCACAO PK "Nro. Marcação"
         number SEQUENCIA PK "Sequência"
+    }
+    TSIEMP {
+        number CODEMP PK "Cód. Empresa"
+    }
+    TMGEMP {
+        number CODEMP PK "Cód. Empresa"
     }
 ```
 
