@@ -23,6 +23,7 @@ tags:
 | [TMGMARCACAO](TMGMARCACAO.md) |
 | [TMGMARCACAOXPEDIDO](TMGMARCACAOXPEDIDO.md) |
 | [TMGPRODUTO](TMGPRODUTO.md) |
+| [TMGSERD](TMGSERD.md) |
 | [TMGTOP](TMGTOP.md) |
 
 ### Modelagem
@@ -150,6 +151,26 @@ erDiagram
     }
     TMGCLASSEMAT {
         number ID PK "Id."
+    }
+    TSIEMP {
+        number CODEMP PK "Cód. Empresa"
+    }
+    TMGEMP {
+        number CODEMP PK "Cód. Empresa"
+    }
+```
+
+#### Serrada
+
+```mermaid
+erDiagram
+    TMGSERD ||--|| TSIEMP : contains
+    
+    TSIEMP ||--|| TMGEMP : exists
+
+    TMGSERD {
+        number NUSERD PK "Nro. Serrada"
+        number CODEMP FK "Cód. Empresa"
     }
     TSIEMP {
         number CODEMP PK "Cód. Empresa"
