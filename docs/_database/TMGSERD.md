@@ -1,6 +1,6 @@
 ---
 id: tmgserd
-title: '[MG] Serrada'
+title: '[MG] Serrada de Bloco'
 description: Serrada de Bloco
 authors:
     - Cassio Menezes
@@ -18,7 +18,7 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 | Evento | Valor |
 |--|--|
 | **Nome tabela** | TMGSERD |
-| **Descrição** | [MG] Serrada |
+| **Descrição** | [MG] Serrada de Bloco |
 | **Nome instância** | MgSerrada |
 | **Descrição instância** | Serrada de Bloco |
 | **Lançador** |
@@ -35,12 +35,15 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 |--|--|--|
 | TSIEMP | Tabela | Empresa |
 | [TMGEMP](TMGEMP.md) | Tabela | [MG] Preferencias por Empresa |
+| [TMGFICHATEC](TMGFICHATEC.md) | Tabela | [MG] Ficha Técnica |
 
 ### Modelagem
 
 ```mermaid
 erDiagram
     TMGSERD ||--|| TSIEMP : contains
+    TMGSERD ||--|| TMGFICHATEC : contains
+    TMGFICHATEC ||--|| TMGSERV : contains
     TMGSERD ||--|| STATUS : enum
     TMGSERD ||--|| TIPO : enum
     
@@ -52,11 +55,19 @@ erDiagram
         date DTOPER "Dt. Operação"
         varchar STATUS "Status"
         varchar TIPO "Tipo"
+        number IDFICHATEC FK "Id. Ficha Técnica"
         number CODUSUINC "Cód. Usuário Inc."
         date DHINC "Dt./Hr.Inclusão"
         number CODUSU "Cód. Usuário"
         date DHALTER "Dt./Hr.Alteração"
     }
+    TMGFICHATEC {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+		number IDSERVICO PK "Id. Serviço"
+    }
+	TMGSERV {
+		number IDSERVICO PK "Id. Serviço"
+	}
     STATUS {
         varchar _0 "Aguardando Serragem"
         varchar _1 "Serrando"

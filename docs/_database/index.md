@@ -19,11 +19,13 @@ tags:
 | [TMGDUREZA](TMGDUREZA.md) |
 | [TMGEMP](TMGEMP.md) |
 | [TMGFICHA](TMGFICHA.md) |
+| [TMGFICHATEC](TMGFICHATEC.md) |
 | [TMGFICHAXBLOCO](TMGFICHAXBLOCO.md) |
 | [TMGMARCACAO](TMGMARCACAO.md) |
 | [TMGMARCACAOXPEDIDO](TMGMARCACAOXPEDIDO.md) |
 | [TMGPRODUTO](TMGPRODUTO.md) |
 | [TMGSERD](TMGSERD.md) |
+| [TMGSERV](TMGSERV.md) |
 | [TMGTOP](TMGTOP.md) |
 
 ### Modelagem
@@ -165,12 +167,15 @@ erDiagram
 ```mermaid
 erDiagram
     TMGSERD ||--|| TSIEMP : contains
+    TMGSERD ||--|| TMGFICHATEC : contains
+    TMGFICHATEC ||--|| TMGSERV : contains
     
     TSIEMP ||--|| TMGEMP : exists
 
     TMGSERD {
         number NUSERD PK "Nro. Serrada"
         number CODEMP FK "Cód. Empresa"
+        number IDFICHATEC FK "Id. Ficha Técnica"
     }
     TSIEMP {
         number CODEMP PK "Cód. Empresa"
@@ -178,4 +183,11 @@ erDiagram
     TMGEMP {
         number CODEMP PK "Cód. Empresa"
     }
+    TMGFICHATEC {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+		number IDSERVICO PK "Id. Serviço"
+    }
+	TMGSERV {
+		number IDSERVICO PK "Id. Serviço"
+	}
 ```
