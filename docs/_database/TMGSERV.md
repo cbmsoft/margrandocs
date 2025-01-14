@@ -1,17 +1,17 @@
 ---
 id: tmgserv
 title: '[MG] Serviço'
-description: Serviço
+description: Serviço.
 authors:
-	- Cassio Menezes
+    - Cassio Menezes
 tags: 
-- table
+- database
 ---
 # TMGSERV
 
 ## Detalhamento do Objeto
 
-Serviços a serem utilizados na transformação de blocoes e chapas.
+Serviços a serem utilizados na transformação de blocos e chapas.
 
 | Evento | Valor |
 |--|--|
@@ -31,15 +31,37 @@ Serviços a serem utilizados na transformação de blocoes e chapas.
 
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
-| [TMGSERV](TMGSERV.md) | Tabela | [MG] Serviço |
+| TSIUSU | Tabela | Usuario |
+| [TMGTIPOSERV](TMGTIPOSERV.md) | Tabela | [MG] Tipo de Serviço |
+| [TMGSETOR](TMGSETOR.md) | Tabela | [MG] Setor |
 
 ### Modelagem
 
 ```mermaid
 erDiagram
+    TMGSERV ||--|| TMGTIPOSERV : contains
+    TMGSERV ||--|| TMGSETOR : contains
+    TMGSERV ||--|| TSIUSU : contains
+
 	TMGSERV {
 		number IDSERVICO PK "Id. Serviço"
+        varchar DESCRSERVICO "Descrição Serviço"
+		number IDTIPOSERVICO FK "Id. Tipo Serviço"
+		number IDSETOR FK "Id. Setor"
+        number CODUSUINC FK "Cód. Usuário Inc."
+        date DHINC "Dt./Hr.Inclusão"
+        number CODUSU FK "Cód. Usuário"
+        date DHALTER "Dt./Hr.Alteração"
 	}
+	TMGTIPOSERV {
+		number IDTIPOSERVICO PK "Id. Tipo Serviço"
+	}
+	TMGSETOR {
+		number IDSETOR PK "Id. Setor"
+	}
+    TSIUSU {
+        number CODUSU PK "Cód. Usuário"
+    }
 ```
 
 ### Histórico de Revisões

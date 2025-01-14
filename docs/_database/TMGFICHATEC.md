@@ -1,11 +1,11 @@
 ---
 id: tmgfichatec
 title: '[MG] Ficha Técnica'
-description: Ficha técnica para serrada de bloco
+description: Ficha técnica para serrada de bloco.
 authors:
-	- Cassio Menezes
+    - Cassio Menezes
 tags: 
-- table
+- database
 ---
 # TMGFICHATEC
 
@@ -33,6 +33,7 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
+| TSIUSU | Tabela | Usuario |
 | [TMGSERV](TMGSERV.md) | Tabela | [MG] Serviço |
 
 ### Modelagem
@@ -40,16 +41,27 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 ```mermaid
 erDiagram
     TMGFICHATEC ||--|| TMGSERV : contains
+    TMGFICHATEC ||--|| TSIUSU : contains
 
 	TMGFICHATEC {
 		number IDFICHATEC PK "Id. Ficha Técnica"
         varchar DESCRFICHATEC "Descrição Ficha Técnica"
         varchar ATIVO "Ativo"
         number IDSERVICO FK "Id. Serviço"
+        varchar ALTERAESTADO "Altera Estado (Bruto p/ Beneficiado)"
+        varchar ALTERAPRODUTO "Altera Produto"
+        varchar ALTERAPRONTO "Altera p/ pronto?"
+        number CODUSUINC FK "Cód. Usuário Inc."
+        date DHINC "Dt./Hr.Inclusão"
+        number CODUSU FK "Cód. Usuário"
+        date DHALTER "Dt./Hr.Alteração"
 	}
 	TMGSERV {
 		number IDSERVICO PK "Id. Serviço"
 	}
+    TSIUSU {
+        number CODUSU PK "Cód. Usuário"
+    }
 ```
 
 ### Histórico de Revisões

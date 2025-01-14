@@ -34,6 +34,7 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
 | TSIEMP | Tabela | Empresa |
+| TSIUSU | Tabela | Usuario |
 | [TMGEMP](TMGEMP.md) | Tabela | [MG] Preferencias por Empresa |
 | [TMGFICHATEC](TMGFICHATEC.md) | Tabela | [MG] Ficha Técnica |
 
@@ -44,6 +45,7 @@ erDiagram
     TMGSERD ||--|| TSIEMP : contains
     TMGSERD ||--|| TMGFICHATEC : contains
     TMGFICHATEC ||--|| TMGSERV : contains
+    TMGSERD ||--|| TSIUSU : contains
     TMGSERD ||--|| STATUS : enum
     TMGSERD ||--|| TIPO : enum
     
@@ -56,18 +58,21 @@ erDiagram
         varchar STATUS "Status"
         varchar TIPO "Tipo"
         number IDFICHATEC FK "Id. Ficha Técnica"
-        number CODUSUINC "Cód. Usuário Inc."
+        number CODUSUINC FK "Cód. Usuário Inc."
         date DHINC "Dt./Hr.Inclusão"
-        number CODUSU "Cód. Usuário"
+        number CODUSU FK "Cód. Usuário"
         date DHALTER "Dt./Hr.Alteração"
     }
     TMGFICHATEC {
         number IDFICHATEC PK "Id. Ficha Técnica"
-		number IDSERVICO PK "Id. Serviço"
+		number IDSERVICO FK "Id. Serviço"
     }
 	TMGSERV {
 		number IDSERVICO PK "Id. Serviço"
 	}
+    TSIUSU {
+        number CODUSU PK "Cód. Usuário"
+    }
     STATUS {
         varchar _0 "Aguardando Serragem"
         varchar _1 "Serrando"
