@@ -41,6 +41,7 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 ```mermaid
 erDiagram
     TMGFICHATEC ||--|| TMGSERV : contains
+    TMGFICHATEC ||--|| TMGEQUIPAMENTO : contains
     TMGFICHATEC ||--|| TSIUSU : contains
 
 	TMGFICHATEC {
@@ -48,6 +49,7 @@ erDiagram
         varchar DESCRFICHATEC "Descrição Ficha Técnica"
         varchar ATIVO "Ativo"
         number IDSERVICO FK "Id. Serviço"
+        number IDEQUIPAMENTO PK "Id. Equipamento"
         varchar ALTERAESTADO "Altera Estado (Bruto p/ Beneficiado)"
         varchar ALTERAPRODUTO "Altera Produto"
         varchar ALTERAPRONTO "Altera p/ pronto?"
@@ -58,6 +60,9 @@ erDiagram
 	}
 	TMGSERV {
 		number IDSERVICO PK "Id. Serviço"
+	}
+	TMGEQUIPAMENTO {
+		number IDEQUIPAMENTO PK "Id. Equipamento"
 	}
     TSIUSU {
         number CODUSU PK "Cód. Usuário"

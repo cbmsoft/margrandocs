@@ -46,7 +46,7 @@ erDiagram
  	}
 	TMGTIPOSERV {
 		number IDTIPOSERVICO FK "Id. Tipo Serviço"
-        varchar DESCRTIPOSERVICO "Descrição Tipo Serviço"
+        varchar DESCRTIPOSERVICO "Descrição"
         varchar ATIVO "Ativo"
         number CODUSUINC "Cód. Usuário Inc."
         date DHINC "Dt./Hr.Inclusão"

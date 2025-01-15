@@ -18,6 +18,7 @@ tags:
 | [TMGCLASSEMAT](TMGCLASSEMAT.md) |
 | [TMGDUREZA](TMGDUREZA.md) |
 | [TMGEMP](TMGEMP.md) |
+| [TMGEQUIPAMENTO](TMGEQUIPAMENTO.md) |
 | [TMGFICHA](TMGFICHA.md) |
 | [TMGFICHATEC](TMGFICHATEC.md) |
 | [TMGFICHAXBLOCO](TMGFICHAXBLOCO.md) |
@@ -169,6 +170,7 @@ erDiagram
     TMGSERD ||--|| TSIEMP : contains
     TMGSERD ||--|| TMGFICHATEC : contains
     TMGFICHATEC ||--|| TMGSERV : contains
+    TMGFICHATEC ||--|| TMGEQUIPAMENTO : contains
     
     TSIEMP ||--|| TMGEMP : exists
 
@@ -185,9 +187,13 @@ erDiagram
     }
     TMGFICHATEC {
         number IDFICHATEC PK "Id. Ficha Técnica"
-		number IDSERVICO PK "Id. Serviço"
+		number IDSERVICO FK "Id. Serviço"
+        number IDEQUIPAMENTO FK "Id. Equipamento"
     }
 	TMGSERV {
 		number IDSERVICO PK "Id. Serviço"
+	}
+	TMGEQUIPAMENTO {
+		number IDEQUIPAMENTO PK "Id. Equipamento"
 	}
 ```

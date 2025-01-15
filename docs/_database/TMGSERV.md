@@ -34,6 +34,7 @@ Serviços a serem utilizados na transformação de blocos e chapas.
 | TSIUSU | Tabela | Usuario |
 | [TMGTIPOSERV](TMGTIPOSERV.md) | Tabela | [MG] Tipo de Serviço |
 | [TMGSETOR](TMGSETOR.md) | Tabela | [MG] Setor |
+| [TMGEQUIPAMENTO](TMGEQUIPAMENTO.md) | Tabela | [MG] Equipamento |
 
 ### Modelagem
 

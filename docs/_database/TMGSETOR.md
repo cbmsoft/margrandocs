@@ -43,10 +43,11 @@ erDiagram
 
 	TMGSERV {
 		number IDSERVICO PK "Id. Serviço"
+        number IDSETOR FK "Id. Setor"
  	}
 	TMGSETOR {
-		number IDSETOR FK "Id. Setor"
-        varchar DESCRSETOR "Descrição Tipo Serviço"
+		number IDSETOR PK "Id. Setor"
+        varchar DESCRSETOR "Descrição"
         varchar ATIVO "Ativo"
         number CODUSUINC FK "Cód. Usuário Inc."
         date DHINC "Dt./Hr.Inclusão"
