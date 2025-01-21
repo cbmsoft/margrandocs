@@ -58,9 +58,9 @@ erDiagram
         number ESPESSLAMFIO "Espessura da Lâmina ou fio (cm)"
         number ESPESSURACHAPA "Espessura da Chapa (em cm)"
         number BKVINCULO "Prod. Bloco p/ Vínculo"
-        number ALTURAUTIL "Altura Útil mm (insumos: Lâminas)"
+        number ALTURAUTIL "Altura Útil mm (Insumos: Lâminas)"
         number PESOLAMINA "Peso KG (Insumos:Laminas)"
-        number PESOPMM "Peso por Milimetro (insumos: Lâminas)"
+        number PESOPMM "Peso por Milimetro (Insumos: Lâminas)"
         varchar CLASSPRODUCAO "Classificação Produção"
     }
     TGFPRO {

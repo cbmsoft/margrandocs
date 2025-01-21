@@ -47,6 +47,7 @@ erDiagram
 	TMGSERV {
 		number IDSERVICO PK "Id. Serviço"
         varchar DESCRSERVICO "Descrição Serviço"
+        varchar ATIVO "Ativo"
 		number IDTIPOSERVICO FK "Id. Tipo Serviço"
 		number IDSETOR FK "Id. Setor"
         number CODUSUINC FK "Cód. Usuário Inc."

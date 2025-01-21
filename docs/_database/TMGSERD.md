@@ -47,7 +47,6 @@ erDiagram
     TMGFICHATEC ||--|| TMGSERV : contains
     TMGSERD ||--|| TSIUSU : contains
     TMGSERD ||--|| STATUS : enum
-    TMGSERD ||--|| TIPO : enum
     
     TSIEMP ||--|| TMGEMP : exists
 
@@ -56,7 +55,6 @@ erDiagram
         number CODEMP FK "Cód. Empresa"
         date DTOPER "Dt. Operação"
         varchar STATUS "Status"
-        varchar TIPO "Tipo"
         number IDFICHATEC FK "Id. Ficha Técnica"
         number CODUSUINC FK "Cód. Usuário Inc."
         date DHINC "Dt./Hr.Inclusão"
@@ -78,10 +76,6 @@ erDiagram
         varchar _1 "Serrando"
         varchar _2 "Serragem Finalizada"
         varchar _3 "Polida"
-	}
-    TIPO {
-        varchar S "Serrada"
-        varchar P "Polimento"
 	}
     TSIEMP {
         number CODEMP PK "Cód. Empresa"

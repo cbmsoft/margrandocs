@@ -27,6 +27,8 @@ tags:
 | [TMGPRODUTO](TMGPRODUTO.md) |
 | [TMGSERD](TMGSERD.md) |
 | [TMGSERV](TMGSERV.md) |
+| [TMGSETOR](TMGSETOR.md) |
+| [TMGTIPOSERV](TMGTIPOSERV.md) |
 | [TMGTOP](TMGTOP.md) |
 
 ### Modelagem
