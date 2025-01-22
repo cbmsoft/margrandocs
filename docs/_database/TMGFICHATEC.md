@@ -34,6 +34,9 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
 | TSIUSU | Tabela | Usuario |
+| [TMGEQUIPAMENTO](TMGEQUIPAMENTO.md) | Tabela | [MG] Equipamento |
+| [TMGFICHATECXCIP](TMGFICHATECXCIP.md) | Tabela | [MG] Ficha Técnica x Tarifas CIP |
+| [TMGFICHATECXDUR](TMGFICHATECXDUR.md) | Tabela | [MG] Ficha Técnica x Dureza |
 | [TMGSERV](TMGSERV.md) | Tabela | [MG] Serviço |
 
 ### Modelagem
@@ -41,7 +44,9 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 ```mermaid
 erDiagram
     TMGFICHATEC ||--|| TMGSERV : contains
-    TMGFICHATEC ||--|| TMGEQUIPAMENTO : contains
+    TMGFICHATEC |o--o| TMGEQUIPAMENTO : contains
+    TMGFICHATEC |o--o{ TMGFICHATECXDUR : contains
+    TMGFICHATEC |o--o{ TMGFICHATECXCIP : contains
     TMGFICHATEC ||--|| TSIUSU : contains
 
 	TMGFICHATEC {
@@ -63,6 +68,14 @@ erDiagram
 	}
 	TMGEQUIPAMENTO {
 		number IDEQUIPAMENTO PK "Id. Equipamento"
+	}
+	TMGFICHATECXDUR {
+		number IDFICHATEC PK "Id. Ficha Técnica"
+        number IDDUREZA PK, FK "Classificação de Dureza"
+	}
+	TMGFICHATECXCIP {
+		number IDFICHATEC PK "Id. Ficha Técnica"
+        number CODPRODTAR PK, FK "Tarifa"
 	}
     TSIUSU {
         number CODUSU PK "Cód. Usuário"

@@ -21,6 +21,9 @@ tags:
 | [TMGEQUIPAMENTO](TMGEQUIPAMENTO.md) |
 | [TMGFICHA](TMGFICHA.md) |
 | [TMGFICHATEC](TMGFICHATEC.md) |
+| [TMGFICHATECXCIP](TMGFICHATECXCIP.md) |
+| [TMGFICHATECXDUR](TMGFICHATECXDUR.md) |
+| [TMGFICHATECXMP](TMGFICHATECXMP.md) |
 | [TMGFICHAXBLOCO](TMGFICHAXBLOCO.md) |
 | [TMGMARCACAO](TMGMARCACAO.md) |
 | [TMGMARCACAOXPEDIDO](TMGMARCACAOXPEDIDO.md) |
@@ -123,8 +126,8 @@ erDiagram
     TMGFICHAXBLOCO ||--|| TMGBLOCO : contains
     TMGBLOCO ||--|| TMGPRODUTO : contains
     TMGPRODUTO ||--|| TGFPRO : contains
-    TMGPRODUTO ||--o| TMGDUREZA : contains
-    TMGPRODUTO ||--o| TMGCLASSEMAT : contains
+    TMGPRODUTO |o--o| TMGDUREZA : contains
+    TMGPRODUTO |o--o| TMGCLASSEMAT : contains
 
     TSIEMP ||--|| TMGEMP : exists
 
@@ -173,6 +176,8 @@ erDiagram
     TMGSERD ||--|| TMGFICHATEC : contains
     TMGFICHATEC ||--|| TMGSERV : contains
     TMGFICHATEC ||--|| TMGEQUIPAMENTO : contains
+    TMGFICHATEC o|--o{ TMGFICHATECXDUR : contains
+    TMGFICHATEC o|--o{ TMGFICHATECXCIP : contains
     
     TSIEMP ||--|| TMGEMP : exists
 
@@ -197,5 +202,13 @@ erDiagram
 	}
 	TMGEQUIPAMENTO {
 		number IDEQUIPAMENTO PK "Id. Equipamento"
+	}
+	TMGFICHATECXDUR {
+		number IDFICHATEC PK "Id. Ficha Técnica"
+        number IDDUREZA PK, FK "Classificação de Dureza"
+	}
+	TMGFICHATECXCIP {
+		number IDFICHATEC PK "Id. Ficha Técnica"
+        number CODPRODTAR PK, FK "Tarifa"
 	}
 ```
