@@ -11,9 +11,7 @@ tags:
 
 ## Detalhamento do Objeto
 
-Serrada refere-se ao ato de serrar, ou seja, o processo de corte do bloco em chapas utilizando serras específicas, como teares multilâminas ou multifios. É o termo que descreve a ação em si e o resultado desse processo: as chapas serradas.
-
-O processo de serrada é crucial na produção de chapas de rochas ornamentais. A qualidade da serrada influencia diretamente na qualidade final do produto, como o acabamento e a espessura das chapas. Diversos parâmetros influenciam na serrada, como o tipo de serra, a velocidade de corte, o tipo de abrasivo utilizado e as características da rocha.
+A *Ficha Técnica* .
 
 | Evento | Valor |
 |--|--|
@@ -43,14 +41,28 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 
 ```mermaid
 erDiagram
+    TSIUSU ||--|| TMGFICHATEC : contains
+    
+    TMGFICHATEC ||..o{ TMGFICHATECXMP : uses
+    TMGFICHATEC ||..o{ TMGFICHATECXCIP : uses
     TMGFICHATEC ||--|| TMGSERV : contains
-    TMGFICHATEC |o--o| TMGEQUIPAMENTO : contains
-    TMGFICHATEC |o--o{ TMGFICHATECXDUR : contains
-    TMGFICHATEC |o--o{ TMGFICHATECXCIP : contains
-    TMGFICHATEC ||--|| TSIUSU : contains
-
-	TMGFICHATEC {
-		number IDFICHATEC PK "Id. Ficha Técnica"
+    TMGFICHATEC ||..o| TMGFICHATECXEQP : uses
+    TMGFICHATECXEQP ||..o{ TMGFICHATECXEQPXMP : uses
+    TMGFICHATECXEQP ||..o{ TMGFICHATECXEQPXCIP : uses
+    TMGFICHATECXEQP ||..o{ TMGEQUIPAMENTO : contains
+    TMGFICHATEC ||..o{ TMGFICHATECXDUR : contains
+    TMGFICHATECXDUR ||..o{ TMGFICHATECXDURXMP : uses
+    TMGFICHATECXDUR ||..o{ TMGFICHATECXDURXCIP : uses
+    
+    TSIUSU {
+        number CODUSU PK "Cód. Usuário"
+    }
+    TMGFICHATECXMP {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+        number CODPRODMP PK,FK "Insumo"
+    }
+    TMGFICHATEC {
+        number IDFICHATEC PK "Id. Ficha Técnica"
         varchar DESCRFICHATEC "Descrição Ficha Técnica"
         varchar ATIVO "Ativo"
         number IDSERVICO FK "Id. Serviço"
@@ -62,23 +74,44 @@ erDiagram
         date DHINC "Dt./Hr.Inclusão"
         number CODUSU FK "Cód. Usuário"
         date DHALTER "Dt./Hr.Alteração"
-	}
-	TMGSERV {
-		number IDSERVICO PK "Id. Serviço"
-	}
-	TMGEQUIPAMENTO {
-		number IDEQUIPAMENTO PK "Id. Equipamento"
-	}
-	TMGFICHATECXDUR {
-		number IDFICHATEC PK "Id. Ficha Técnica"
-        number IDDUREZA PK, FK "Classificação de Dureza"
-	}
-	TMGFICHATECXCIP {
-		number IDFICHATEC PK "Id. Ficha Técnica"
-        number CODPRODTAR PK, FK "Tarifa"
-	}
-    TSIUSU {
-        number CODUSU PK "Cód. Usuário"
+    }
+    TMGSERV {
+        number IDSERVICO PK "Id. Serviço"
+    }
+    TMGFICHATECXEQP {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+        number IDEQUIPAMENTO PK,FK "Id. Equipamento"
+    }
+    TMGFICHATECXEQPXMP {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+        number IDEQUIPAMENTO PK,FK "Id. Equipamento"
+        number CODPRODMP PK,FK "Insumo"
+    }
+    TMGFICHATECXEQPXCIP {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+        number IDEQUIPAMENTO PK,FK "Id. Equipamento"
+        number CODPRODTAR PK,FK "Tarifa"
+    }
+    TMGEQUIPAMENTO {
+        number IDEQUIPAMENTO PK "Id. Equipamento"
+    }
+    TMGFICHATECXDUR {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+        number IDDUREZA PK,FK "Classificação de Dureza"
+    }
+    TMGFICHATECXDURXMP {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+        number IDDUREZA PK,FK "Classificação de Dureza"
+        number CODPRODMP PK,FK "Insumo"
+    }
+    TMGFICHATECXDURXCIP {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+        number IDDUREZA PK,FK "Classificação de Dureza"
+        number CODPRODTAR PK,FK "Tarifa"
+    }
+    TMGFICHATECXCIP {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+        number CODPRODTAR PK,FK "Tarifa"
     }
 ```
 
@@ -86,4 +119,5 @@ erDiagram
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
+| 2.0 | 23/01/2025 | Cassio Menezes | Atualização da estrutura para insumos e tarifas |
 | 1.0 | 09/01/2025 | Cassio Menezes | Criação do documento |
