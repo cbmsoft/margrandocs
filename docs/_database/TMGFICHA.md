@@ -16,11 +16,11 @@ A Ficha de Bloco é um facilitador que visa agrupar todas as informações a res
 | Evento | Valor |
 |--|--|
 | **Nome tabela** | TMGFICHA |
-| **Descrição** | [MG] Ficha Técnica |
+| **Descrição** | [MG] Ficha Bloco |
 | **Nome instância** | MgFicha |
-| **Descrição instância** | Ficha Técnica |
+| **Descrição instância** | Ficha Bloco |
 | **Lançador** |
-| Descrição do Controle | [MG] Ficha Técnica |
+| Descrição do Controle | [MG] Ficha Bloco |
 | Identificador | br.com.sankhya.pwn.margran.Ficha |
 | Evento | ${dynaform:MgFicha} |
 | contexto | pwnmargran |

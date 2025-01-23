@@ -1,13 +1,13 @@
 ---
-id: tmgserd
-title: '[MG] Serrada de Bloco'
-description: Serrada de Bloco
+id: tmgserdxbloco
+title: '[MG] Serrada de Bloco X Bloco'
+description: Serrada de Bloco X Bloco
 authors:
     - Cassio Menezes
 tags: 
 - table
 ---
-# TMGSERD
+# TMGSERDXBLOCO
 
 ## Detalhamento do Objeto
 
@@ -17,17 +17,10 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 
 | Evento | Valor |
 |--|--|
-| **Nome tabela** | TMGSERD |
-| **Descrição** | [MG] Serrada de Bloco |
-| **Nome instância** | MgSerrada |
-| **Descrição instância** | Serrada de Bloco |
-| **Lançador** |
-| Descrição do Controle | [MG] Serrada de Bloco |
-| Identificador | br.com.sankhya.pwn.margran.Serrada |
-| Evento | ${dynaform:MgSerrada} |
-| contexto | pwnmargran |
-| entityName | MgSerrada |
-| resourceID | br.com.pwn.margran.serrada |
+| **Nome tabela** | TMGSERDXBLOCO |
+| **Descrição** | [MG] Serrada de Bloco X Bloco |
+| **Nome instância** | MgSerradaXBloco |
+| **Descrição instância** | Serrada de Bloco X Bloco |
 
 ### Objetos Relacionados
 
@@ -37,47 +30,41 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 | TSIUSU | Tabela | Usuario |
 | [TMGEMP](TMGEMP.md) | Tabela | [MG] Preferencias por Empresa |
 | [TMGFICHATEC](TMGFICHATEC.md) | Tabela | [MG] Ficha Técnica |
-| [TMGSERDXBLOCO](TMGSERDXBLOCO.md) | Tabela | [MG] Serrada de Bloco X Bloco |
 
 ### Modelagem
 
 ```mermaid
 erDiagram
-    TMGSERD ||--|| TSIEMP : contains
-    TMGSERD ||--|| TMGFICHATEC : contains
-    TMGFICHATEC ||--|| TMGSERV : contains
-    TMGSERD ||--|| TSIUSU : contains
-    TMGSERD ||--|| STATUS : enum
+    TMGSERD ||--|| TMGSERDXBLOCO : contains
+    TMGSERDXBLOCO ||--|| TSIEMP : contains
+    TMGSERDXBLOCO ||--|| TMGFICHA : contains
+    TMGSERDXBLOCO ||--|| TSIUSU : contains
+    TMGSERDXBLOCO ||--|| STATUS : enum
     
     TSIEMP ||--|| TMGEMP : exists
 
     TMGSERD {
         number NUSERD PK "Nro. Serrada"
-        number CODEMP FK "Cód. Empresa"
-        date DTOPER "Dt. Operação"
-        varchar STATUS "Status"
-        number IDFICHATEC FK "Id. Ficha Técnica"
+    }
+    TMGSERDXBLOCO {
+        number NUSERD PK "Nro. Serrada"
+        number CODEMP PK,FK "Cód. Empresa"
+        number IDBLOCO PK,FK "Id. Bloco"
+        number CODPRODPA PK,FK "Chapa"
+        number QTD "Qtd. Chapas"
+        number ESPESSLAMFIO "Espessura Lamina/fio (cm)"
         number CODUSUINC FK "Cód. Usuário Inc."
         date DHINC "Dt./Hr.Inclusão"
         number CODUSU FK "Cód. Usuário"
         date DHALTER "Dt./Hr.Alteração"
     }
-    TMGFICHATEC {
-        number IDFICHATEC PK "Id. Ficha Técnica"
-		number IDSERVICO FK "Id. Serviço"
+    TMGFICHA {
+        number CODEMP PK "Cód. Empresa"
+        number IDBLOCO PK "Id. Bloco"
     }
-	TMGSERV {
-		number IDSERVICO PK "Id. Serviço"
-	}
     TSIUSU {
         number CODUSU PK "Cód. Usuário"
     }
-    STATUS {
-        varchar _0 "Aguardando Serragem"
-        varchar _1 "Serrando"
-        varchar _2 "Serragem Finalizada"
-        varchar _3 "Polida"
-	}
     TSIEMP {
         number CODEMP PK "Cód. Empresa"
     }
@@ -90,4 +77,4 @@ erDiagram
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
-| 1.0 | 08/01/2025 | Cassio Menezes | Criação do documento |
+| 1.0 | 22/01/2025 | Cassio Menezes | Criação do documento |
