@@ -48,9 +48,10 @@ erDiagram
     }
     TMGSERDXBLOCO {
         number NUSERD PK "Nro. Serrada"
-        number CODEMP PK,FK "Cód. Empresa"
-        number IDBLOCO PK,FK "Id. Bloco"
-        number CODPRODPA PK,FK "Chapa"
+        number SEQUENCIA PK "Sequência"
+        number CODEMP FK "Cód. Empresa"
+        number IDBLOCO FK "Id. Bloco"
+        number CODPRODPA FK "Chapa"
         number QTD "Qtd. Chapas"
         number ESPESSLAMFIO "Espessura Lamina/fio (cm)"
         number CODUSUINC FK "Cód. Usuário Inc."
