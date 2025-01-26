@@ -7,7 +7,7 @@ authors:
 tags: 
 - database
 ---
-# TMGFICHATEC
+# TMGFICHATECXDUR
 
 Filtro a ser aplicado no processo de Serrada de Blocos para validar a inclusão da matéria prima, no caso Blocos.
 
@@ -25,7 +25,9 @@ Filtro a ser aplicado no processo de Serrada de Blocos para validar a inclusão 
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
 | TSIUSU | Tabela | Usuario |
+| [TMGDUREZA](TMGDUREZA.md) | Tabela | [MG] Classificação de Dureza |
 | [TMGFICHATEC](TMGFICHATEC.md) | Tabela | [MG] Ficha Técnica |
+| [TMGFICHATECXDURXMP](TMGFICHATECXDURXMP.md) | Tabela | [MG] Ficha Técnica x Dureza x Insumo |
 
 ### Modelagem
 
@@ -40,7 +42,8 @@ erDiagram
 	}
 	TMGFICHATECXDUR {
 		number IDFICHATEC PK "Id. Ficha Técnica"
-        number IDDUREZA PK, FK "Classificação de Dureza"
+        number IDDUREZAINI PK,FK "Dureza Inicial"
+        number IDDUREZAFIN PK,FK "Dureza Final"
         number CODUSUINC FK "Cód. Usuário Inc."
         date DHINC "Dt./Hr.Inclusão"
         number CODUSU FK "Cód. Usuário"

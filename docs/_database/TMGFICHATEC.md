@@ -32,10 +32,12 @@ A *Ficha Técnica* .
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
 | TSIUSU | Tabela | Usuario |
-| [TMGEQUIPAMENTO](TMGEQUIPAMENTO.md) | Tabela | [MG] Equipamento |
+| [TMGDUREZA](TMGDUREZA.md) | Tabela | [MG] Classificação de Dureza |
 | [TMGFICHATECXCIP](TMGFICHATECXCIP.md) | Tabela | [MG] Ficha Técnica x Tarifas CIP |
 | [TMGFICHATECXDUR](TMGFICHATECXDUR.md) | Tabela | [MG] Ficha Técnica x Dureza |
-| [TMGSERV](TMGSERV.md) | Tabela | [MG] Serviço |
+| [TMGFICHATECXDURXCIP](TMGFICHATECXDURXCIP.md) | Tabela | [MG] Ficha Técnica x Dureza x Tarifa |
+| [TMGFICHATECXDURXMP](TMGFICHATECXDURXMP.md) | Tabela | [MG] Ficha Técnica x Dureza x Insumo |
+| [TMGFICHATECXEQP](TMGFICHATECXEQP.md) | Tabela | [MG] Ficha Técnica x Equipamento |
 
 ### Modelagem
 
@@ -45,7 +47,6 @@ erDiagram
     
     TMGFICHATEC ||..o{ TMGFICHATECXMP : uses
     TMGFICHATEC ||..o{ TMGFICHATECXCIP : uses
-    TMGFICHATEC ||--|| TMGSERV : contains
     TMGFICHATEC ||..o| TMGFICHATECXEQP : uses
     TMGFICHATECXEQP ||..o{ TMGFICHATECXEQPXMP : uses
     TMGFICHATECXEQP ||..o{ TMGFICHATECXEQPXCIP : uses
@@ -53,34 +54,35 @@ erDiagram
     TMGFICHATEC ||..o{ TMGFICHATECXDUR : contains
     TMGFICHATECXDUR ||..o{ TMGFICHATECXDURXMP : uses
     TMGFICHATECXDUR ||..o{ TMGFICHATECXDURXCIP : uses
+    TMGFICHATEC ||--|| TIPO : enum
     
     TSIUSU {
         number CODUSU PK "Cód. Usuário"
-    }
-    TMGFICHATECXMP {
-        number IDFICHATEC PK "Id. Ficha Técnica"
-        number CODPRODMP PK,FK "Insumo"
     }
     TMGFICHATEC {
         number IDFICHATEC PK "Id. Ficha Técnica"
         varchar DESCRFICHATEC "Descrição Ficha Técnica"
         varchar ATIVO "Ativo"
-        number IDSERVICO FK "Id. Serviço"
-        number IDEQUIPAMENTO PK "Id. Equipamento"
-        varchar ALTERAESTADO "Altera Estado (Bruto p/ Beneficiado)"
-        varchar ALTERAPRODUTO "Altera Produto"
-        varchar ALTERAPRONTO "Altera p/ pronto?"
+        varchar TIPO "Tipo"
         number CODUSUINC FK "Cód. Usuário Inc."
         date DHINC "Dt./Hr.Inclusão"
         number CODUSU FK "Cód. Usuário"
         date DHALTER "Dt./Hr.Alteração"
     }
-    TMGSERV {
-        number IDSERVICO PK "Id. Serviço"
+    TMGFICHATECXMP {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+        number CODPRODMP PK,FK "Insumo"
+    }
+    TMGFICHATECXCIP {
+        number IDFICHATEC PK "Id. Ficha Técnica"
+        number CODPRODTAR PK,FK "Tarifa"
     }
     TMGFICHATECXEQP {
         number IDFICHATEC PK "Id. Ficha Técnica"
         number IDEQUIPAMENTO PK,FK "Id. Equipamento"
+    }
+    TMGEQUIPAMENTO {
+        number IDEQUIPAMENTO PK "Id. Equipamento"
     }
     TMGFICHATECXEQPXMP {
         number IDFICHATEC PK "Id. Ficha Técnica"
@@ -91,9 +93,6 @@ erDiagram
         number IDFICHATEC PK "Id. Ficha Técnica"
         number IDEQUIPAMENTO PK,FK "Id. Equipamento"
         number CODPRODTAR PK,FK "Tarifa"
-    }
-    TMGEQUIPAMENTO {
-        number IDEQUIPAMENTO PK "Id. Equipamento"
     }
     TMGFICHATECXDUR {
         number IDFICHATEC PK "Id. Ficha Técnica"
@@ -109,9 +108,9 @@ erDiagram
         number IDDUREZA PK,FK "Classificação de Dureza"
         number CODPRODTAR PK,FK "Tarifa"
     }
-    TMGFICHATECXCIP {
-        number IDFICHATEC PK "Id. Ficha Técnica"
-        number CODPRODTAR PK,FK "Tarifa"
+    TIPO {
+        varchar S "Serrada"
+        varchar B "Beneficiamento"
     }
 ```
 
