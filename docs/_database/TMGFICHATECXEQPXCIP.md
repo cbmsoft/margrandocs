@@ -1,13 +1,13 @@
 ---
-id: tmgfichatecxdurxmp
-title: '[MG] Ficha Técnica x Dureza x Insumo'
+id: tmgfichatecxeqpxcip
+title: '[MG] Ficha Técnica x Equipamento x Tarifa'
 description: Insumos por Classificação de Dureza.
 authors:
     - Cassio Menezes
 tags: 
 - database
 ---
-# TMGFICHATECXDURXMP
+# TMGFICHATECXEQPXCIP
 
 Filtro a ser aplicado no processo de Serrada de Blocos para validar a inclusão da matéria prima, no caso Blocos.
 
@@ -15,53 +15,50 @@ Filtro a ser aplicado no processo de Serrada de Blocos para validar a inclusão 
 
 | Evento | Valor |
 |--|--|
-| **Nome tabela** | TMGFICHATECXDURXMP |
-| **Descrição** | [MG] Ficha Técnica x Dureza x Insumo |
-| **Nome instância** | MgFichaTecnicaXDurXMP |
-| **Descrição instância** | Insumos |
+| **Nome tabela** | TMGFICHATECXEQPXCIP |
+| **Descrição** | [MG] Ficha Técnica x Equipamento x Tarifa |
+| **Nome instância** | MgFichaTecnicaXEqpXCIP |
+| **Descrição instância** | Tarifas CIP |
 
 ### Objetos Relacionados
 
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
-| TGFPRO | Tabela | ProdutoMateriaPrima |
+| TGFPRO | Tabela | TarifasCIP |
 | TGFVOL | Tabela | Volume |
 | TGFLOC | Tabela | LocalFinanceiro |
 | TSIUSU | Tabela | Usuario |
 | [TMGFICHATEC](TMGFICHATEC.md) | Tabela | [MG] Ficha Técnica |
-| [TMGFICHATECXDUR](TMGFICHATECXDUR.md) | Tabela | [MG] Ficha Técnica x Dureza |
+| [TMGFICHATECXEQP](TMGFICHATECXEQP.md) | Tabela | [MG] Ficha Técnica x Equipamento |
 
 ### Modelagem
 
 ```mermaid
 erDiagram
-    TMGFICHATEC ||..o{ TMGFICHATECXDUR : contains
-    TMGFICHATECXDUR |o--o{ TMGFICHATECXDURXMP : contains
-    TMGFICHATECXDURXMP ||--|| TGFPRO : contains
+    TMGFICHATEC ||..o{ TMGFICHATECXEQP : contains
+    TMGFICHATECXEQP |o--o{ TMGFICHATECXEQPXCIP : contains
+    TMGFICHATECXEQPXCIP ||--|| TGFPRO : contains
     TGFPRO ||--|| TMGPRODUTO : exists
-    TMGFICHATECXDURXMP ||--|| TGFVOL : contains
-    TMGFICHATECXDURXMP ||--|| TGFLOC : contains
-    TMGFICHATECXDURXMP ||--|| TSIUSU : contains
-    TMGFICHATECXDURXMP ||--|| TIPOINDICE : enum
-    TMGFICHATECXDURXMP ||--|| TIPOEXEC : enum
+    TMGFICHATECXEQPXCIP ||--|| TGFVOL : contains
+    TMGFICHATECXEQPXCIP ||--|| TGFLOC : contains
+    TMGFICHATECXEQPXCIP ||--|| TSIUSU : contains
+    TMGFICHATECXEQPXCIP ||--|| TIPOINDICE : enum
+    TMGFICHATECXEQPXCIP ||--|| TIPOEXEC : enum
 
 	TMGFICHATEC {
 		number IDFICHATEC PK "Id. Ficha Técnica"
 	}
-	TMGFICHATECXDUR {
+	TMGFICHATECXEQP {
 		number IDFICHATEC PK "Id. Ficha Técnica"
-        number IDDUREZAINI PK,FK "Dureza Inicial"
-        number IDDUREZAFIN PK,FK "Dureza Final"
+        number IDEQUIPAMENTO PK,FK "Id. Equipamento"
 	}
-	TMGFICHATECXDURXMP {
+	TMGFICHATECXEQPXCIP {
 		number IDFICHATEC PK "Id. Ficha Técnica"
-        number IDDUREZAINI PK,FK "Dureza Inicial"
-        number IDDUREZAFIN PK,FK "Dureza Final"
-        number CODPRODMP PK, FK "Insumo"
-        number QTD "Qtd. Prevista"
-        varchar CODVOL FK "Unidade"
+        number IDEQUIPAMENTO PK,FK "Id. Equipamento"
+        number CODPRODTAR PK, FK "Tarifa"
+        number QTD "Índice"
+        varchar CODVOL FK "Un. Consumo"
         number VLRCUSUNIT "Custo Unitário"
-        number CODLOCALORIG FK "Cód. Local"
         varchar TIPOINDICE "Tipo de Índice"
         varchar TIPOEXEC "Tipo de Execução"
         number CODUSUINC FK "Cód. Usuário Inc."
@@ -99,4 +96,4 @@ erDiagram
 
 | Versão | Data | Autor | Observações |
 |:--:|:--:|--|--|
-| 1.0 | 23/01/2025 | Cassio Menezes | Criação do documento |
+| 1.0 | 28/01/2025 | Cassio Menezes | Criação do documento |

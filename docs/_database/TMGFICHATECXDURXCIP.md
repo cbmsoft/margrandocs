@@ -24,9 +24,9 @@ Filtro a ser aplicado no processo de Serrada de Blocos para validar a inclusão 
 
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
-| TGFPRO | Tabela | ProdutoMateriaPrima |
+| TGFPRO | Tabela | TarifasCIP |
 | TGFVOL | Tabela | Volume |
-| TGFLOC | Tabela | 
+| TGFLOC | Tabela | LocalFinanceiro |
 | TSIUSU | Tabela | Usuario |
 | [TMGFICHATEC](TMGFICHATEC.md) | Tabela | [MG] Ficha Técnica |
 | [TMGFICHATECXDUR](TMGFICHATECXDUR.md) | Tabela | [MG] Ficha Técnica x Dureza |

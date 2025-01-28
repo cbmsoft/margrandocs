@@ -17,7 +17,7 @@ Códigos de classificação de dureza de minerais.
 |--|--|
 | **Nome tabela** | TMGDUREZA |
 | **Descrição** | [MG] Classificação de Dureza |
-| **Nome instância** | MgDureza |
+| **Nome instância** | MgDureza, MgDurezaFinal |
 | **Descrição instância** | Classificação de Dureza de Minerais |
 | **Lançador** |
 | Descrição do Controle | [MG] Classificação de Dureza |
