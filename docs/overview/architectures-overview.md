@@ -1,6 +1,6 @@
 # Arquitetura do Projeto
 
-Este é um projeto de Add-on para o ERP Sankhya Om e segue as diretrizes apresentadas para customizações no site Sanhya Developer: https://developer.sankhya.com.br/docs/new-sdk
+Este é um projeto de Add-on para o ERP Sankhya Om e segue as diretrizes apresentadas para customizações no site Sanhya Developer: [https://developer.sankhya.com.br/docs/new-sdk](https://developer.sankhya.com.br/docs/new-sdk)
 
 ## Eclipse
 
@@ -44,6 +44,6 @@ Para nomeação de pacotes vamos utilizar `br.com.pwn.margran`.
 
 **`NUMOS`**: 0110
 
-## Tabelas
+## Documentação Técnica
 
-### [TMGPRODUTO](../_database/TMGPRODUTO.md)
+### [Estrutura de Dados](../_database/index.md)

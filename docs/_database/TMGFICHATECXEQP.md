@@ -18,7 +18,7 @@ Filtro a ser aplicado no processo de Serrada de Blocos para validar a inclusão 
 | **Nome tabela** | TMGFICHATECXEQP |
 | **Descrição** | [MG] Ficha Técnica x Equipamento |
 | **Nome instância** | MgFichaTecnicaXEqp |
-| **Descrição instância** | Equipamento |
+| **Descrição instância** | Equipamentos |
 
 ### Objetos Relacionados
 

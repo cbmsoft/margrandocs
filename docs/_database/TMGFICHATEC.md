@@ -9,6 +9,12 @@ tags:
 ---
 # TMGFICHATEC
 
+A **Ficha Técnica** é uma das configurações mais importantes e essenciais no sistema. É um cadastro que conduzirá a produção. 
+
+A **Ficha Técnica** é de dois tipos: "Serrada" e "Beneficiamento".
+
+Filtra as Durezas permitidas para o processo e também os Equipamentos que podem ser utilizados.
+
 ## Detalhamento do Objeto
 
 A *Ficha Técnica* .
