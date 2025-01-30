@@ -19,17 +19,17 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 |--|--|
 | **Nome tabela** | TMGSERDXCHAPA |
 | **Descrição** | [MG] Serrada de Bloco X Chapa |
-| **Nome instância** | MgSerradaXChapa |
+| **Nome instância** | MgSerradaXChapa   |
 | **Descrição instância** | Chapas |
 
 ### Objetos Relacionados
 
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
-| TSIEMP | Tabela | Empresa |
+| TGFPRO | Tabela | Produto |
 | TSIUSU | Tabela | Usuario |
 | [TMGEMP](TMGEMP.md) | Tabela | [MG] Preferencias por Empresa |
-| [TMGFICHATEC](TMGFICHATEC.md) | Tabela | [MG] Ficha Técnica |
+| [TMGSERD](TMGSERD.md) | Tabela | [MG] Serrada de Bloco |
 
 ### Modelagem
 
@@ -39,22 +39,19 @@ erDiagram
     TMGSERDXCHAPA ||--|| TGFLOC : contains
     TMGSERDXCHAPA ||--|| TSIEMP : contains
     TMGSERDXCHAPA ||--|| TSIUSU : contains
-    TMGSERDXCHAPA ||--|| STATUS : enum
     
-    TSIEMP ||--|| TMGEMP : exists
-
     TMGSERD {
         number NUSERD PK "Nro. Serrada"
     }
     TMGSERDXCHAPA {
         number NUSERD PK "Nro. Serrada"
-        number CODEMP PK,FK "Cód. Empresa"
-        number IDBLOCO PK,FK "Id. Bloco"
+        number SEQUENCIA PK "Sequência  "
+        number SEQCHAPA PK "Sequência Chapa"
         number CODPRODPA PK,FK "Chapa"
         number COMPRIMENTO "Comprimento"
         number ALTURA "Altura"
         number ESPESSURA "Espessura"
-        number CODLOCAL FK "Cód. Local"
+        number CODLOCAL FK "Cód. Local  "
         number CODUSUINC FK "Cód. Usuário Inc."
         date DHINC "Dt./Hr.Inclusão"
         number CODUSU FK "Cód. Usuário"

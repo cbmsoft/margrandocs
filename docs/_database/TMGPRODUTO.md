@@ -34,6 +34,7 @@ Campos complementares do cadastro de produtos, necessários aos procedimentos do
 | TGFPRO | Tabela | Produto |
 | [TMGDUREZA](TMGDUREZA.md) | Tabela | [MG] Dureza |
 | [TMGCLASSEMAT](TMGCLASSEMAT.md) | Tabela | [MG] Classe de Material |
+| [TMGPRODUTOVINC](TMGPRODUTOVINC.md) | Tabela | [MG] Produto Vinculado |
 
 ### Modelagem
 
@@ -42,6 +43,7 @@ erDiagram
     TMGPRODUTO ||--|| TGFPRO : contains
     TMGPRODUTO ||--o{ TMGDUREZA : contains
     TMGPRODUTO ||--o{ TMGCLASSEMAT : contains
+    TMGPRODUTO ||--o{ TMGPRODUTOVINC : contains
     TMGPRODUTO ||--|| TIPOPROD : enum
     TMGPRODUTO ||--|| TIPOPOLI : enum
     TMGPRODUTO ||--|| CLASSPRODUCAO : enum
@@ -71,6 +73,10 @@ erDiagram
     }
     TMGCLASSEMAT {
         number ID PK "Id."
+    }
+    TMGPRODUTOVINC {
+        number CODPROD PK,FK "Cód. Produto"
+        number CODPRODVINC PK,FK "Cód. Produto Vinculado"
     }
     TIPOPROD {
         varchar B "Bloco"
