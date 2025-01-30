@@ -20,7 +20,7 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 | **Nome tabela** | TMGSERDXCHAPA |
 | **Descrição** | [MG] Serrada de Bloco X Chapa |
 | **Nome instância** | MgSerradaXChapa |
-| **Descrição instância** | Serrada de Bloco X Chapa |
+| **Descrição instância** | Chapas |
 
 ### Objetos Relacionados
 

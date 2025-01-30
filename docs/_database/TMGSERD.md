@@ -34,18 +34,24 @@ O processo de serrada é crucial na produção de chapas de rochas ornamentais. 
 | Nome | Tipo do Objeto | Descrição |
 |--|--|--|
 | TSIEMP | Tabela | Empresa |
+| TGFVEN | Tabela | Vendedor |
 | TSIUSU | Tabela | Usuario |
 | [TMGEMP](TMGEMP.md) | Tabela | [MG] Preferencias por Empresa |
+| [TMGEQUIPAMENTO](TMGEQUIPAMENTO.md) | Tabela | [MG] Equipamento |
 | [TMGFICHATEC](TMGFICHATEC.md) | Tabela | [MG] Ficha Técnica |
 | [TMGSERDXBLOCO](TMGSERDXBLOCO.md) | Tabela | [MG] Serrada de Bloco X Bloco |
+| [TMGSERDXCHAPA](TMGSERDXCHAPA.md) | Tabela | [MG] Serrada de Bloco X Chapa |
 
 ### Modelagem
 
 ```mermaid
 erDiagram
     TMGSERD ||--|| TSIEMP : contains
+    TMGSERD ||--|| TGFVEN : contains
     TMGSERD ||--|| TMGFICHATEC : contains
     TMGFICHATEC ||--|| TMGSERV : contains
+    TMGSERD ||--|| TMGEQUIPAMENTO : contains
+    TMGSERD o|--|{ TMGSERDXBLOCO : contains
     TMGSERD ||--|| TSIUSU : contains
     TMGSERD ||--|| STATUS : enum
     
@@ -56,11 +62,20 @@ erDiagram
         number CODEMP FK "Cód. Empresa"
         date DTOPER "Dt. Operação"
         varchar STATUS "Status"
+        number CODVEND FK "Cód. Executante"
         number IDFICHATEC FK "Id. Ficha Técnica"
+        number IDEQUIPAMENTO FK "Id. Equipamento"
+        date DTINISER "Dt./Hr. Início"
+        number HORINI "Horímetro Inicial"
+        date DTFINSER "Dt./Hr. Finalização"
+        number HORFIN "Horímetro Final"
         number CODUSUINC FK "Cód. Usuário Inc."
         date DHINC "Dt./Hr.Inclusão"
         number CODUSU FK "Cód. Usuário"
         date DHALTER "Dt./Hr.Alteração"
+    }
+    TGFVEN {
+        number CODVEND FK "Vendedor"
     }
     TMGFICHATEC {
         number IDFICHATEC PK "Id. Ficha Técnica"
@@ -69,6 +84,13 @@ erDiagram
 	TMGSERV {
 		number IDSERVICO PK "Id. Serviço"
 	}
+    TMGEQUIPAMENTO {
+        number IDEQUIPAMENTO PK "Id. Equipamento"
+    }
+    TMGSERDXBLOCO {
+        number NUSERD PK "Nro. Serrada"
+        number SEQUENCIA PK "Sequência"
+    }
     TSIUSU {
         number CODUSU PK "Cód. Usuário"
     }

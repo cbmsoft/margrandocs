@@ -39,6 +39,7 @@ A *Ficha Técnica* .
 |--|--|--|
 | TSIUSU | Tabela | Usuario |
 | [TMGDUREZA](TMGDUREZA.md) | Tabela | [MG] Classificação de Dureza |
+| [TMGEQUIPAMENTO](TMGEQUIPAMENTO.md) | Tabela | [MG] Equipamento |
 | [TMGFICHATECXCIP](TMGFICHATECXCIP.md) | Tabela | [MG] Ficha Técnica x Tarifas CIP |
 | [TMGFICHATECXDUR](TMGFICHATECXDUR.md) | Tabela | [MG] Ficha Técnica x Dureza |
 | [TMGFICHATECXDURXCIP](TMGFICHATECXDURXCIP.md) | Tabela | [MG] Ficha Técnica x Dureza x Tarifa |
